@@ -7,16 +7,16 @@ import SideAdmin from './sideBar/SideAdmin'
 const DashboardAdmin = () => {
   return (
     <main className="container-fluid bg-white">
-            <div className="row d-flex flex-nowrap">
-                <SideAdmin/>
-                <div className="col">
-                    <div className="row">
-                        <NavAdmin />
-                    </div>
-                    <Outlet/>
+        <div className="row d-flex flex-nowrap">
+            <SideAdmin/>
+            <div className="col">
+                <div className="row">
+                    <NavAdmin />
                 </div>
+                <Outlet/>
             </div>
-        </main>
+        </div>
+    </main>
   )
 }
 
