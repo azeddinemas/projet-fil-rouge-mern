@@ -15,6 +15,9 @@ import Reservation from "./components/agent/Reservation/Reservation";
 import Voyages from "./components/agent/Voyages/Voyages";
 import Profile from "./components/agent/Profile/Profile";
 import UpdateProfil from "./components/agent/Profile/UpdateProfil";
+import Leandinpage from "./components/client/Leandinpage";
+import Page from "./components/client/Page";
+import OurPackage from "./components/client/OurPackage/OurPackage";
 
 function App() {
   return (
@@ -33,6 +36,10 @@ function App() {
             <Route path="/voyage" element={<Voyages/>}/>
             <Route path='/profile' element={<Profile/>}/>    
             <Route path='/updateProfil' element={<UpdateProfil/>}/>      
+        </Route>
+        <Route element={<Leandinpage/>}>
+          <Route path="/clientpage" element={<Page/>}/>
+          <Route path="/ourPackage" element={<OurPackage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
