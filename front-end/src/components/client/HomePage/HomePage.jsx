@@ -11,10 +11,10 @@ const HomePage = () => {
                     <img src={image} id="img" style={{maxWidth: 500}}/>
                 </div>
                 <div className="col-md text-center text-sm-start">
-                    <h1 style="color: #F79F1F;">Hello!</h1>
+                    <h1 style={{color: "#F79F1F"}}>Hello!</h1>
                     <div>
                         <p className="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, minima architecto illum nam, temporibus quia qui eum enim quasi dignissimos quas iste alias eos dolore atque nihil repellat culpa officia!</p>
-                        <Link href="#" className="btn text-white mt-3" style={{background: "#F79F1F"}}>Login here</Link>
+                        <Link to="#" className="btn text-white mt-3" style={{background: "#F79F1F"}}>Login here</Link>
                     </div>
                     <hr/>
                 </div>

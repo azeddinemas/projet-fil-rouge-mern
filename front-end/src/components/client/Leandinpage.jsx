@@ -6,7 +6,7 @@ const Leandinpage = () => {
   return (
     <>
       <Header/>
-      <main style={{backgroundColor: '#eee'}} className='vh-100'>
+      <main style={{backgroundColor: '#eee'}}>
         <Outlet/>
       </main>
     </>

@@ -13,7 +13,7 @@ const Packages = () => {
                     <div className="card-body">
                         <h5 className="card-title fs-3">4DH&nbsp;<span className="text-decoration-line-through text-secondary fs-5 fw-lighter">4</span></h5>
                         <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci distinctio</p>
-                        <form method="POST">
+                        <form>
                             <button type="submit" name="addreservation" style={{background: "#F79F1F"}} className="btn text-white">go somewhere</button>
                         </form>
                     </div>
