@@ -33,7 +33,7 @@ const Voyages = () => {
                 </thead>
                 <tbody className="bg-white">
                     <tr className="align-middle">
-                        <td><img width={100} src={"#"}/></td>
+                        <td><img width={100} alt='...' src={"#"}/></td>
                         <td className='text-nowrap'>name</td>
                         <td >Lorem ipsum, dolor sit amet consectetur adipisicing elit</td>
                         <td>200</td>

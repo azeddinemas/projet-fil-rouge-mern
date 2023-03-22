@@ -6,10 +6,10 @@ import './login.css'
 const Login = () => {
   return (
     <section className="vh-100" style={{backgroundImage: `url(${img})`,backgroundSize: "cover"}}>
-      <div class="w-100 h-100 d-flex align-items-center" style={{backgroundColor: "#1E1F2459"}}>
+      <div className="w-100 h-100 d-flex align-items-center" style={{backgroundColor: "#1E1F2459"}}>
         <main className="form-signin w-100 m-auto p-3 text-center rounded-4" style={{maxWidth: 380,backgroundColor: "#f5f5f5"}}>
           <form>
-            <img className="mb-4" src={require('../../images/4206917.png')} alt="" width="130" />
+            <img className="mb-4" src={require('../../images/4206917.png')} alt="..." width="130" />
             <h1 className="h3 mb-3 fw-normal">Please <span style={{color:"#ff9847"}}>sign</span><span style={{color: "#ad59e8"}}>in</span></h1>
 
             <div className="form-floating">

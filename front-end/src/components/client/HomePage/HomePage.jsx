@@ -8,7 +8,7 @@ const HomePage = () => {
         <div className="container-fluid container-lg mb-3">
             <div className="row d-flex justify-content-between align-items-center">
                 <div className="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">
-                    <img src={image} id="img" style={{maxWidth: 500}}/>
+                    <img src={image} alt='...' id="img" style={{maxWidth: 500}}/>
                 </div>
                 <div className="col-md text-center text-sm-start">
                     <h1 style={{color: "#F79F1F"}}>Hello!</h1>

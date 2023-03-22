@@ -11,23 +11,23 @@ const Review = () => {
         <div className="p-3">
             <div className="d-flex overflow-auto gap-5">
                 <div className="col-6 col-md-4 shadow-lg p-3 mb-5 bg-body rounded-3">
-                    <img src={pic1} className="rounded-circle mx-auto d-block" width={100}/>
+                    <img src={pic1} className="rounded-circle mx-auto d-block" width={100} alt='...'/>
                     <p className="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
                 <div className="col-6 col-md-4 shadow-lg p-3 mb-5 bg-body rounded-4">
-                    <img src={pic2} className="rounded-circle mx-auto d-block" width={100}/>
+                    <img src={pic2} className="rounded-circle mx-auto d-block" width={100} alt='...'/>
                     <p className="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
                 <div className="col-6 col-md-4 shadow-lg p-3 mb-5 bg-body rounded-4">
-                    <img src={pic3} className="rounded-circle mx-auto d-block" width={100}/>
+                    <img src={pic3} className="rounded-circle mx-auto d-block" width={100} alt='...'/>
                     <p className="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
                 <div className="col-6 col-md-4 shadow-lg p-3 mb-5 bg-body rounded-4">
-                    <img src={pic3} className="rounded-circle mx-auto d-block" width={100}/>
+                    <img src={pic3} className="rounded-circle mx-auto d-block" width={100} alt='...'/>
                     <p className="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
                 <div className="col-6 col-md-4 shadow-lg p-3 mb-5 bg-body rounded-4">
-                    <img src={pic4} className="rounded-circle mx-auto d-block" width={100}/>
+                    <img src={pic4} className="rounded-circle mx-auto d-block" width={100} alt='...'/>
                     <p className="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
             </div>

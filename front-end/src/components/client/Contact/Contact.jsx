@@ -5,7 +5,7 @@ const Contact = () => {
     <div className="container mt-4" id="contact">
         <h1 className="text-center fw-bolder" style={{fontSize: "4rem", color: "#444"}}>Contact <span>Us</span></h1>
         <div className="col-8 mx-auto p-3">
-            <form method="POST">
+            <form>
                 <div className="row">
                     <div className="col-lg-6 col-md-6 mt-3">
                         <input type="text" name="nom" placeholder="Entrer votre name" className="form-control shadow"/>

@@ -3,7 +3,7 @@ import React from 'react'
 const Addvoyage = () => {
   return (
     <div className='form'>
-        <form method="POST" className='mt-2 d-flex justify-content-between' encType='multipart/form-data' id='form'>
+        <form className='mt-2 d-flex justify-content-between' encType='multipart/form-data' id='form'>
             <div className="mb-3">
                 <label className="form-label">Name</label>
                 <input type="text" className="form-control" placeholder='name' name="name" />
@@ -19,8 +19,8 @@ const Addvoyage = () => {
             <div className="mb-3">
                 <label className="form-label">categorie</label>
                 <select className='form-select' name="categorie">
-                        <option className='form-control'>hhhh</option>
-                        <option className='form-control'>hhhh</option>
+                    <option className='form-control'>hhhh</option>
+                    <option className='form-control'>hhhh</option>
                 </select>
             </div>
             <div className="mb-3">

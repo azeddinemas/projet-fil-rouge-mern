@@ -15,7 +15,7 @@ const SideAdmin = () => {
                 <span className="text-info">|</span>Voyageons
             </h3>
             <br />
-            <img className="rounded rounded-circle w-50 d-none d-sm-inline" src={img} />
+            <img className="rounded rounded-circle w-50 d-none d-sm-inline" src={img} alt='...' />
             <h4 className='d-none d-sm-block'>Azeddine</h4>
             <p className="text-info mt-5 mt-sm-0">Admin</p>
             <hr />

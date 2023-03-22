@@ -7,7 +7,7 @@ const Register = () => {
       <div className='w-100 h-100 d-flex justify-content-center align-items-center' style={{backgroundColor:"#1E1F2459"}}>
         <section style={{maxWidth:500}} className="p-4 shadow rounded-5 bg-white">
           <form className='text-center'>
-              <img src={require('../../images/4206917.png')} className='w-50'/>
+              <img src={require('../../images/4206917.png')} className='w-50' alt='...'/>
               <h2 className="text-center my-4" style={{color:"#ff9847"}}>Sign <span style={{color:"#ad59e8"}}>Up</span></h2>
               <div className="text-start d-sm-flex column-gap-3">
                   <div className='col mb-3'>

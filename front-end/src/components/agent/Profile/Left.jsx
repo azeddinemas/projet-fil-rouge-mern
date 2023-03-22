@@ -5,7 +5,7 @@ const Left = () => {
     <div className="col-lg-4">
         <div className="card mb-2 py-3">
             <div className="card-body text-center">
-                <img src={require('../../images/ava3.webp')} className="rounded-circle img-fluid" style={{width: 150}}/>
+                <img src={require('../../images/ava3.webp')} className="rounded-circle img-fluid" alt='...' style={{width: 150}}/>
                 <h5 className="my-3">John Smith</h5>
                 <p className="text-muted mb-1">Full Stack Developer</p>
                 <p className="text-muted mb-2">Bay Area, San Francisco, CA</p>

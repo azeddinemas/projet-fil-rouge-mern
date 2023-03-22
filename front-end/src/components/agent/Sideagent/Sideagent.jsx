@@ -12,7 +12,7 @@ const Sideagent = () => {
                 <span className="text-info">|</span>Voyageons
             </h3>
             <br />
-            <img className="rounded rounded-circle d-none d-sm-inline w-50" src={require('../../images/avatar5.jpg')}/>
+            <img className="rounded rounded-circle d-none d-sm-inline w-50" alt='...' src={require('../../images/avatar5.jpg')}/>
             <h4 className='d-none d-sm-block'>Azeddine</h4>
             <p className="text-info mt-5 mt-sm-0">Agent</p>
             <hr />
