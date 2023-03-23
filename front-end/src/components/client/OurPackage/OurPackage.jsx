@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Fpackage from './Fpackage';
 import Hpackage from './Hpackage';
 import p1 from '../../images/p-1.jpg';
@@ -13,13 +13,13 @@ const OurPackage = () => {
   return (
     <>
       <main>
-        <Hpackage/>
+        <Hpackage />
         <div className="py-5 bg-secondary">
           <div className="container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p1} className="bd-placeholder-img card-img-top"  alt="..."/>
+                  <img src={p1} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -34,7 +34,7 @@ const OurPackage = () => {
               </div>
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p2} className="bd-placeholder-img card-img-top" alt="..."/>
+                  <img src={p2} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -49,7 +49,7 @@ const OurPackage = () => {
               </div>
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p3} className="bd-placeholder-img card-img-top" alt="..."/>
+                  <img src={p3} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -64,7 +64,7 @@ const OurPackage = () => {
               </div>
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p4} className="bd-placeholder-img card-img-top" alt="..."/>
+                  <img src={p4} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -79,7 +79,7 @@ const OurPackage = () => {
               </div>
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p5} className="bd-placeholder-img card-img-top" alt="..."/>
+                  <img src={p5} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -94,7 +94,7 @@ const OurPackage = () => {
               </div>
               <div className="col">
                 <div className="card shadow-sm">
-                  <img src={p6} className="bd-placeholder-img card-img-top" alt="..."/>
+                  <img src={p6} className="bd-placeholder-img card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div className="d-flex justify-content-between align-items-center">
@@ -120,9 +120,9 @@ const OurPackage = () => {
           </div>
         </div>
       </main>
-      <Fpackage/>
-    
-    
+      <Fpackage />
+
+
     </>
   )
 }

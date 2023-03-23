@@ -10,13 +10,13 @@ import Footer from './Footer/Footer'
 const Page = () => {
   return (
     <>
-      <HomePage/>
-      <Packages/>
-      <Show/>
-      <Services/>
-      <Review/>
-      <Contact/>
-      <Footer/>
+      <HomePage />
+      <Packages />
+      <Show />
+      <Services />
+      <Review />
+      <Contact />
+      <Footer />
     </>
   )
 }

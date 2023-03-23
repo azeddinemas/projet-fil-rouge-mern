@@ -5,16 +5,16 @@ import NavAgent from './Sideagent/NavAgent';
 
 const DashAgent = () => {
   return (
-    <main className="container-fluid" style={{backgroundColor:"#eee"}}>
-        <div className="row d-flex flex-nowrap">
-            <Sideagent/>
-            <div className="col">
-                <div className="row">
-                    <NavAgent/>
-                </div>
-                <Outlet/>
-            </div>
+    <main className="container-fluid" style={{ backgroundColor: "#eee" }}>
+      <div className="row d-flex flex-nowrap">
+        <Sideagent />
+        <div className="col">
+          <div className="row">
+            <NavAgent />
+          </div>
+          <Outlet />
         </div>
+      </div>
     </main>
   )
 }

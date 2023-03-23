@@ -7,12 +7,12 @@ const Profile = () => {
   return (
     <div className="container">
       <div className="row">
-        <Left/>
+        <Left />
         <div className='col-lg-8'>
-          <RightTop/>
+          <RightTop />
           <div className='row'>
-            <RightButtom/>
-            <RightButtom/>
+            <RightButtom />
+            <RightButtom />
           </div>
         </div>
       </div>

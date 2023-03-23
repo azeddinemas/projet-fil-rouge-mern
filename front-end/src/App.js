@@ -26,20 +26,20 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<DashboardAdmin />}>
-            <Route path="/statistique" element={<Statistique />} />
-            <Route path="/client" element={<Client/>}/>          
-            <Route path="/agent" element={<Agent/>}/>          
+          <Route path="/statistique" element={<Statistique />} />
+          <Route path="/client" element={<Client />} />
+          <Route path="/agent" element={<Agent />} />
         </Route>
-        <Route element={<DashAgent/>}>
-            <Route path="/statistiqueagent" element={<Statistiqueagent/>} />
-            <Route path="/reservation" element={<Reservation/>}/>          
-            <Route path="/voyage" element={<Voyages/>}/>
-            <Route path='/profile' element={<Profile/>}/>    
-            <Route path='/updateProfil' element={<UpdateProfil/>}/>      
+        <Route element={<DashAgent />}>
+          <Route path="/statistiqueagent" element={<Statistiqueagent />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/voyage" element={<Voyages />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/updateProfil' element={<UpdateProfil />} />
         </Route>
-        <Route element={<Leandinpage/>}>
-          <Route path="/clientpage" element={<Page/>}/>
-          <Route path="/ourPackage" element={<OurPackage/>}/>
+        <Route element={<Leandinpage />}>
+          <Route path="/clientpage" element={<Page />} />
+          <Route path="/ourPackage" element={<OurPackage />} />
         </Route>
       </Routes>
     </BrowserRouter>
