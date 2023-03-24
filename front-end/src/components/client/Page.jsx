@@ -8,8 +8,10 @@ import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
 
 const Page = () => {
+
   return (
     <>
+
       <HomePage />
       <Packages />
       <Show />

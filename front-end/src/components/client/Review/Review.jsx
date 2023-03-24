@@ -4,9 +4,9 @@ import pic2 from '../../images/pic-2.png'
 import pic3 from '../../images/pic-3.png'
 import pic4 from '../../images/pic-4.png'
 
-const Review = () => {
+const Review = (props) => {
     return (
-        <div className="container-fluid container-lg mt-4" id="review">
+        <div className="container-fluid container-lg mt-4" id="review" style={props.name}>
             <h1 className="text-center fw-bolder" style={{ fontSize: "4rem", color: "#444" }}>Client's Review</h1>
             <div className="p-3">
                 <div className="d-flex overflow-auto gap-5">

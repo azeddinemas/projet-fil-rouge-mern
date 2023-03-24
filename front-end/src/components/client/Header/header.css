@@ -1,13 +1,11 @@
-
-
-
-header nav .list a.text-dark{
+header nav .list a.text-dark {
     position: relative;
     padding: 2px 23px;
     text-decoration: none;
     transition: 0.5s;
 }
-header nav .list a.text-dark::after{
+
+header nav .list a.text-dark::after {
     position: absolute;
     content: "";
     top: 100%;
@@ -19,7 +17,8 @@ header nav .list a.text-dark::after{
     transform-origin: center;
     transition: transform 0.5s;
 }
-header nav .list a.text-dark:hover::after{
+
+header nav .list a.text-dark:hover::after {
     transform: scaleX(1);
     transform-origin: center;
 }
@@ -40,6 +39,7 @@ header nav #togg {
     header nav #togg {
         display: block;
     }
+
     header nav .list {
         position: fixed;
         top: 0px;
@@ -55,9 +55,11 @@ header nav #togg {
         transition: 0.8s;
         z-index: 1;
     }
+
     header nav #checkbox:checked+.list {
         right: 0px;
     }
+
     header nav .list a {
         border-bottom: rgb(0, 0, 0) solid 1px;
         height: 34px;

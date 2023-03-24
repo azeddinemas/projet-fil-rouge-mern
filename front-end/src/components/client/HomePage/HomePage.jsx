@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import image from '../../images/home-img.svg'
 
-const HomePage = () => {
+const HomePage = (props) => {
     return (
-        <main id="home">
+        <main id="home" style={props.name}>
             <div className="container-fluid container-lg mb-3">
                 <div className="row d-flex justify-content-between align-items-center">
                     <div className="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">

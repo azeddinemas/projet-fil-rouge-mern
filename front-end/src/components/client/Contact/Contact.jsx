@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Contact = () => {
+const Contact = (props) => {
     return (
-        <div className="container mt-4" id="contact">
+        <div className="container mt-4" id="contact" style={props.name}>
             <h1 className="text-center fw-bolder" style={{ fontSize: "4rem", color: "#444" }}>Contact <span>Us</span></h1>
             <div className="col-8 mx-auto p-3">
                 <form>
