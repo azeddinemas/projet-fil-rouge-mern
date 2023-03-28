@@ -35,4 +35,37 @@ const login = async (req, res) => {
 
 }
 
+const getAllAgent = async (req, res) => {
+    try {
+        const data = await users.find({ role: 'agent' })
+        res.send(data)
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+const banieCompte = async (req, res) => {
+    try {
+        const id = req.params.id
+        const data = await users.findById({ _id: id })
+        if (data.active) {
+            const e = await users.updateOne({ _id: id }, { active: false })
+            res.send('desactive avec success')
+        } else {
+            const e = await users.updateOne({ _id: id }, { active: true })
+            res.send('active success')
+        }
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+const getAllClient = async (req, res) => {
+    try {
+        const data = await users.find({ role: 'client' })
+        res.send(data)
+    } catch (error) {
+        res.send(error)
+    }
+}
 module.exports = { register, login }
