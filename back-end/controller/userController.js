@@ -69,4 +69,4 @@ const getAllClient = async (req, res) => {
         res.send(error)
     }
 }
-module.exports = { register, login }
+module.exports = { register, login, getAllClient, banieCompte }
