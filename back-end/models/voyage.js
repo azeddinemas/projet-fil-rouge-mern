@@ -15,10 +15,6 @@ const voyage = mongoose.Schema({
     },
     image: {
         type: String
-    },
-    idagent: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
     }
 });
 module.exports = mongoose.model('voyage', voyage)

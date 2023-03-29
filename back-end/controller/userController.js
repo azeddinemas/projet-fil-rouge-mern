@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const users = require('../models/users');
+const mailer = require('./mailerController')
+const ls = require('local-storage')
 
 const register = (req, res) => {
     const { body } = req;
@@ -9,6 +11,8 @@ const register = (req, res) => {
             if (!data) {
                 bcrypt.hash(body.password, 10)
                     .then((e) => {
+                        ls('email', body.email)
+                        mailer.main()
                         if (e) {
                             users.create({ ...body, password: e, role: 'admin' })
                                 .then((data) => { res.send(data) })
@@ -26,22 +30,19 @@ const login = async (req, res) => {
         if (data) {
             const pass = await bcrypt.compare(body.password, data.password)
             if (pass) {
-                res.send('login succes')
+                if (data.confirmed) {
+                    if (data.active) {
+                        res.send('login success')
+                    } else res.send('votre compte banie')
+                } else {
+                    res.send('consulter votre email')
+                }
             } else res.send('login field')
         } else res.send('email incorrect')
     } catch (error) {
         console.log(error)
     }
 
-}
-
-const getAllAgent = async (req, res) => {
-    try {
-        const data = await users.find({ role: 'agent' })
-        res.send(data)
-    } catch (error) {
-        res.send(error)
-    }
 }
 
 const banieCompte = async (req, res) => {

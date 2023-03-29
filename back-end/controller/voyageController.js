@@ -23,6 +23,15 @@ const getall = (req, res) => {
             res.status(401).send(error)
         })
 }
+const getPackage = (req, res) => {
+
+    voyage.find().limit(4)
+        .then((data) => {
+            res.send(data)
+        }).catch((error) => {
+            res.status(401).send(error)
+        })
+}
 
 const getOne = (req, res) => {
     const { id } = req.params
@@ -55,4 +64,4 @@ const deletevoyage = (req, res) => {
 }
 
 
-module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage }
+module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage }
