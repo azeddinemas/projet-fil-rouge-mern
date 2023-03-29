@@ -14,8 +14,6 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-
-
 const main = () => {
     const email = ls('email')
     const emt = jwt.sign({ email }, process.env.SECRET)
