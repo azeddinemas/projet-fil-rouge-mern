@@ -1,4 +1,3 @@
-const mongoose = require('mongoose')
 const voyage = require('../models/voyage')
 const users = require('../models/users')
 const bcrypt = require('bcryptjs')
@@ -12,23 +11,37 @@ const statistique = async (req, res) => {
 }
 const profile = async (req, res) => {
     const AllUser = await users.find({ role: 'admin' })
-    res.json({ AllUser })
+    res.send(AllUser)
 
 }
 
 const updatePassword = (req, res) => {
     const { body } = req;
-    users.find({ role: 'admin' }).then((data) => {
-        bcrypt.compare(body.password, data.password)
-
-    })
-
-    bcrypt.hash(req.body.password, 10).then((pass) => {
-        users.updateOne({ role: "admin" }, { password: pass }).then(() => {
-            res.send('forget success')
-        })
-    }).catch(() => {
-        res.status(401).send('not forget')
-    })
+    users.findOne({ role: 'admin' })
+        .then((data) => {
+            bcrypt.compare(body.password, data.password)
+                .then((e) => {
+                    if (e) {
+                        bcrypt.hash(body.newPassword, 10)
+                            .then((pass) => {
+                                users.updateOne({ role: 'admin' }, { password: pass })
+                                    .then(() => {
+                                        res.send('edite password avec success')
+                                    }).catch((error) => { res.send(error) })
+                            }).catch((err) => {
+                                res.status(401).send(err)
+                            })
+                    } else res.send('Current password incorrect')
+                }).catch(err => { console.log(err) })
+        }).catch((err) => { res.send(err) })
 }
-module.exports = { statistique, updatePassword, profile }
+
+const getAllClient = async (req, res) => {
+    try {
+        const data = await users.find({ role: 'client' })
+        res.send(data)
+    } catch (error) {
+        res.send(error)
+    }
+}
+module.exports = { statistique, updatePassword, profile, getAllClient }

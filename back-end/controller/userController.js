@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const users = require('../models/users');
 const mailer = require('./mailerController')
@@ -14,7 +13,7 @@ const register = (req, res) => {
                         ls('email', body.email)
                         mailer.main()
                         if (e) {
-                            users.create({ ...body, password: e, role: 'admin' })
+                            users.create({ ...body, password: e, role: 'client' })
                                 .then((data) => { res.send(data) })
                                 .catch((error) => { console.log(error) })
                         } else res.send('nadi')
@@ -37,7 +36,7 @@ const login = async (req, res) => {
                 } else {
                     res.send('consulter votre email')
                 }
-            } else res.send('login field')
+            } else res.send('password incorrect')
         } else res.send('email incorrect')
     } catch (error) {
         console.log(error)
@@ -61,12 +60,4 @@ const banieCompte = async (req, res) => {
     }
 }
 
-const getAllClient = async (req, res) => {
-    try {
-        const data = await users.find({ role: 'client' })
-        res.send(data)
-    } catch (error) {
-        res.send(error)
-    }
-}
-module.exports = { register, login, getAllClient, banieCompte }
+module.exports = { register, login, banieCompte }

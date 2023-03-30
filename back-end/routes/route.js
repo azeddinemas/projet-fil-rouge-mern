@@ -6,6 +6,7 @@ const main = require('../controller/mailerController')
 
 Router.post('/register', users.register)
 Router.post('/login', users.login)
+Router.put('/banie/:id', users.banieCompte)
 
 
 
