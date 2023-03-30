@@ -3,14 +3,15 @@ const app = express()
 const routeUser = require('./routes/route')
 const voyageRoute = require('./routes/voyageRoute')
 const adminRouter = require('./routes/adminRouter')
+const cors = require('cors')
 
 require('dotenv').config()
 const db = require('./config/db')
-const cors = require('cors')
 
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 app.use("/user/auth", routeUser)
 app.use("/voyage", voyageRoute)

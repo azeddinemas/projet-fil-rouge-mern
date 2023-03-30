@@ -31,7 +31,7 @@ const login = async (req, res) => {
             if (pass) {
                 if (data.confirmed) {
                     if (data.active) {
-                        res.send('login success')
+                        res.send(data)
                     } else res.send('votre compte banie')
                 } else {
                     res.send('consulter votre email')
