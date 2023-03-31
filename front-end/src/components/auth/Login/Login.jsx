@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../images/bg.jpg';
 import './login.css'
 import axios from 'axios'
@@ -7,6 +7,7 @@ import { API_URL } from '../../config';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+  const navigate = useNavigate()
   const [user, setUser] = useState({})
   const handlchanger = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
@@ -16,7 +17,8 @@ const Login = () => {
     e.preventDefault()
     axios.post(`${API_URL}/user/auth/login`, user)
       .then((data) => {
-        toast.success('data.data')
+        localStorage.setItem('user', JSON.stringify(data.data))
+        // navigate('/clientpage')
       }).catch((error) => {
         toast.warning(error.response.data.message)
       })

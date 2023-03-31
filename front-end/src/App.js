@@ -18,6 +18,8 @@ import UpdateProfil from "./components/agent/Profile/UpdateProfil";
 import Leandinpage from "./components/client/Leandinpage";
 import Page from "./components/client/Page";
 import OurPackage from "./components/client/OurPackage/OurPackage";
+import PrivetAdminRout from "./components/PrivetAdminRout/PrivetAdminRout";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -25,11 +27,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route element={<DashboardAdmin />}>
-          <Route path="/statistique" element={<Statistique />} />
-          <Route path="/client" element={<Client />} />
-          <Route path="/agent" element={<Agent />} />
+
+        <Route element={<PrivetAdminRout />}>
+          <Route element={<DashboardAdmin />}>
+            <Route path="/statistique" element={<Statistique />} />
+            <Route path="/client" element={<Client />} />
+            <Route path="/agent" element={<Agent />} />
+          </Route>
         </Route>
+
         <Route element={<DashAgent />}>
           <Route path="/statistiqueagent" element={<Statistiqueagent />} />
           <Route path="/reservation" element={<Reservation />} />
@@ -37,10 +43,14 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/updateProfil' element={<UpdateProfil />} />
         </Route>
+
         <Route element={<Leandinpage />}>
           <Route path="/clientpage" element={<Page />} />
           <Route path="/ourPackage" element={<OurPackage />} />
         </Route>
+
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

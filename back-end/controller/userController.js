@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 const users = require('../models/users');
 const mailer = require('./mailerController')
-const ls = require('local-storage')
+const ls = require('local-storage');
+const jwt = require('jsonwebtoken');
 
 const register = (req, res, next) => {
     const { body } = req;
@@ -30,7 +31,8 @@ const login = async (req, res, next) => {
             if (pass) {
                 if (data.confirmed) {
                     if (data.active) {
-                        res.send(data)
+                        const logged_in = jwt.sign({ data }, process.env.SECRET)
+                        res.send(logged_in)
                     } else throw Error('votre compte banie')
                 } else {
                     throw Error('consulter votre email')
