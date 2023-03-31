@@ -9,6 +9,7 @@ require('dotenv').config()
 const db = require('./config/db')
 
 
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
