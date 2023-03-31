@@ -3,7 +3,7 @@ const users = require('../models/users');
 const mailer = require('./mailerController')
 const ls = require('local-storage')
 
-const register = (req, res) => {
+const register = (req, res, next) => {
     const { body } = req;
     users.findOne({ email: body.email })
         .then((data) => {
@@ -14,15 +14,14 @@ const register = (req, res) => {
                         mailer.main()
                         if (e) {
                             users.create({ ...body, password: e, role: 'client' })
-                                .then((data) => { res.send(data) })
-                                .catch((error) => { console.log(error) })
-                        } else res.send('nadi')
+                                .then((data) => { res.send('created avec success') })
+                        } else throw Error('password invalid')
                     }).catch((err) => { console.log(err) })
-            } else res.status(400).send('email already exist')
-        }).catch((error) => { console.log(error); })
+            } else throw Error('email already exist')
+        }).catch((error) => { next(error); })
 }
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     const { body } = req;
     try {
         const data = await users.findOne({ email: body.email })
@@ -32,19 +31,19 @@ const login = async (req, res) => {
                 if (data.confirmed) {
                     if (data.active) {
                         res.send(data)
-                    } else res.send('votre compte banie')
+                    } else throw Error('votre compte banie')
                 } else {
-                    res.send('consulter votre email')
+                    throw Error('consulter votre email')
                 }
-            } else res.send('password incorrect')
-        } else res.send('email incorrect')
+            } else throw Error('password incorrect')
+        } else throw Error('email incorrect')
     } catch (error) {
-        console.log(error)
+        next(error)
     }
 
 }
 
-const banieCompte = async (req, res) => {
+const banieCompte = async (req, res, next) => {
     try {
         const id = req.params.id
         const data = await users.findById({ _id: id })
@@ -56,7 +55,7 @@ const banieCompte = async (req, res) => {
             res.send('active success')
         }
     } catch (error) {
-        res.send(error)
+        next(error)
     }
 }
 

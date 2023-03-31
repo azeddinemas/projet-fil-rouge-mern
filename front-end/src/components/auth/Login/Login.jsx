@@ -4,6 +4,7 @@ import img from '../../images/bg.jpg';
 import './login.css'
 import axios from 'axios'
 import { API_URL } from '../../config';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const [user, setUser] = useState({})
@@ -13,14 +14,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
     axios.post(`${API_URL}/user/auth/login`, user)
       .then((data) => {
-        console.log(data)
+        toast.success('data.data')
       }).catch((error) => {
-        console.log(error)
+        toast.warning(error.response.data.message)
       })
-
   }
   return (
     <section className="vh-100" style={{ backgroundImage: `url(${img})`, backgroundSize: "cover" }}>
@@ -48,6 +47,7 @@ const Login = () => {
           </form>
         </main>
       </div>
+      <ToastContainer />
     </section>
   )
 }

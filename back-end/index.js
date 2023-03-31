@@ -7,16 +7,19 @@ const cors = require('cors')
 
 require('dotenv').config()
 const db = require('./config/db')
+const ErrorHandler = require('./middleware/ErrorHandler')
 
 
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
 app.use(cors())
 
 app.use("/user/auth", routeUser)
 app.use("/voyage", voyageRoute)
 app.use("/admin", adminRouter)
+app.use(ErrorHandler)
 
 
 app.listen(process.env.PORT, () => { console.log(`server is runing on port ${process.env.PORT}`) })

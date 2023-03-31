@@ -6,6 +6,7 @@ import Statistique from "./components/admin/Statistique/Statistique";
 import Client from "./components/admin/Client/Client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import 'react-toastify/dist/ReactToastify.css';
 import 'tippy.js/dist/tippy.css';
 import Agent from "./components/admin/Agent/Agent";
 import DashAgent from "./components/agent/DashAgent";
