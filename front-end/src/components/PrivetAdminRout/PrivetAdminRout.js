@@ -5,7 +5,7 @@ const PrivetAdminRout = () => {
     const ls = JSON.parse(localStorage.getItem('user'))
     const isLogged = jwt(ls)
     return (
-        isLogged.data.role === 'client' ? <Navigate to='/statistique' /> : <Navigate to='/clientpage' />
+        isLogged.data.role === 'client' ? <Outlet /> : <Navigate to='/' />
     )
 }
 
