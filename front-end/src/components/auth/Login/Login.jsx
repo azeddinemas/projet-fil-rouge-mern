@@ -5,6 +5,7 @@ import './login.css'
 import axios from 'axios'
 import { API_URL } from '../../config';
 import { ToastContainer, toast } from 'react-toastify';
+import jwt from 'jwt-decode';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -18,7 +19,13 @@ const Login = () => {
     axios.post(`${API_URL}/user/auth/login`, user)
       .then((data) => {
         localStorage.setItem('user', JSON.stringify(data.data))
-        // navigate('/clientpage')
+        const e = jwt(data.data)
+        if (e.data.role === 'client') {
+          navigate('/clientpage')
+        }
+        if (e.data.role === 'admin') {
+          navigate('/statistique')
+        }
       }).catch((error) => {
         toast.warning(error.response.data.message)
       })

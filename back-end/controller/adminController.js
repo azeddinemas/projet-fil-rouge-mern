@@ -15,6 +15,12 @@ const profile = async (req, res) => {
 
 }
 
+const getAdmin = (req, res) => {
+    users.findOne({ role: 'admin' }).then((data) => {
+        res.send(data)
+    })
+}
+
 const updatePassword = (req, res) => {
     const { body } = req;
     users.findOne({ role: 'admin' })
@@ -44,4 +50,4 @@ const getAllClient = async (req, res) => {
         res.send(error)
     }
 }
-module.exports = { statistique, updatePassword, profile, getAllClient }
+module.exports = { statistique, updatePassword, profile, getAllClient, getAdmin }

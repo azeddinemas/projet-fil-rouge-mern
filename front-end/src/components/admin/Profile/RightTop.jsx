@@ -1,7 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 const RightTop = () => {
+    const [profil, setProfil] = useState({})
+
+    const getAdmin = () => {
+        axios.get(`${API_URL}/admin/getAdmin`).then((data) => {
+            setProfil(data.data)
+        })
+    }
+
+    useEffect(() => {
+        getAdmin()
+    }, [])
+
     return (
         <div className="card mb-2">
             <div className="card-body">
@@ -10,7 +24,7 @@ const RightTop = () => {
                         <p className="mb-0">Full Name</p>
                     </div>
                     <div className="col-sm-9">
-                        <p className="text-muted mb-0">Johnatan Smith</p>
+                        <p className="text-muted mb-0">{profil.name}</p>
                     </div>
                 </div>
                 <hr />
@@ -19,7 +33,7 @@ const RightTop = () => {
                         <p className="mb-0">Email</p>
                     </div>
                     <div className="col-sm-9">
-                        <p className="text-muted mb-0">example@example.com</p>
+                        <p className="text-muted mb-0">{profil.email}</p>
                     </div>
                 </div>
                 <hr />
@@ -28,7 +42,7 @@ const RightTop = () => {
                         <p className="mb-0">Phone</p>
                     </div>
                     <div className="col-sm-9">
-                        <p className="text-muted mb-0">(097) 234-5678</p>
+                        <p className="text-muted mb-0">{profil.phone}</p>
                     </div>
                 </div>
                 <hr />
@@ -43,10 +57,10 @@ const RightTop = () => {
                 <hr />
                 <div className="row">
                     <div className="col-sm-3">
-                        <p className="mb-0">Address</p>
+                        <p className="mb-0">password</p>
                     </div>
                     <div className="col-sm-9">
-                        <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                        <p className="text-muted mb-0">{profil.password}</p>
                     </div>
                 </div>
             </div>

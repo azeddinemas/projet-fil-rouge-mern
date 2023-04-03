@@ -5,7 +5,7 @@ import RightButtom from './RightButtom'
 
 const Profile = () => {
   return (
-    <div className="container">
+    <div className="container mt-4">
       <div className="row">
         <Left />
         <div className='col-lg-8'>
