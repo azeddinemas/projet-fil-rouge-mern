@@ -8,7 +8,6 @@ const Client = () => {
     function getAll() {
         axios.get(`${API_URL}/admin/allclient`).then((e) => {
             setClient(e.data)
-            console.log(e.data)
         })
     }
 
@@ -21,7 +20,6 @@ const Client = () => {
             toast.success(data.data)
             getAll()
         })
-
     }
 
     return (
@@ -51,7 +49,7 @@ const Client = () => {
                     <tbody className="bg-white">
                         {client.map(cli => (
                             <tr className="align-middle" key={cli._id}>
-                                <td className='text-nowrap'>{cli.phone}</td>
+                                <td className='text-nowrap'>{cli.name}</td>
                                 <td >{cli.email}</td>
                                 <td>{cli.phone}</td>
                                 <td>{cli.active ? <span className="badge text-bg-success">Activé</span> : <span className="badge text-bg-danger">Désactivé</span>}</td>

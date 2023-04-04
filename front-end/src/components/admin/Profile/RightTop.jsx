@@ -60,7 +60,7 @@ const RightTop = () => {
                         <p className="mb-0">password</p>
                     </div>
                     <div className="col-sm-9">
-                        <p className="text-muted mb-0">{profil.password}</p>
+                        <h5 className="text-muted mb-0">. . . . . . . . . .</h5>
                     </div>
                 </div>
             </div>

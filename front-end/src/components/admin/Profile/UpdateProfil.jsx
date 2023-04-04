@@ -22,10 +22,10 @@ const UpdateProfil = () => {
   const handelSubmit = (e) => {
     e.preventDefault()
     if (pr.cpassword === pr.newPassword) {
-      axios.post(`${API_URL}/admin/updateprofile`).then((d) => {
-        // toast.success(e.data)
-        console.log(d)
-      }).catch(err => { console.log(err) })
+      axios.post(`${API_URL}/admin/updateprofile`, pr).then((d) => {
+
+        toast.success(d.data)
+      }).catch(err => { toast.warning(err.response.data.message) })
     } else toast.warning('confirmation incorrect')
 
   }
@@ -38,7 +38,7 @@ const UpdateProfil = () => {
             <div className="card-body bg-light">
               <Link to="/profile" className="btn btn-sm btn-info m-2"><i className="bi bi-house text-white"></i></Link>
               <form>
-                <div className="form-group" key={pr._id}>
+                <div className="form-group">
                   <label htmlFor="">name</label>
                   <input type="text" name="name" placeholder="name" onChange={handleChange} value={pr.name} className="form-control" />
                 </div>
@@ -52,7 +52,7 @@ const UpdateProfil = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">current password</label>
-                  <input type="password" name="password" placeholder="password" onChange={handleChange} className="form-control" />
+                  <input type="password" name="currentPassword" placeholder="password" onChange={handleChange} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">new password</label>
@@ -64,7 +64,7 @@ const UpdateProfil = () => {
                 </div>
 
                 <div className="form-group mt-2">
-                  <button type="submit" name="submit" onClick={handelSubmit} className="btn btn-outline-info">Réservé</button>
+                  <button type="submit" name="submit" onClick={handelSubmit} className="btn btn-outline-info">Modifié</button>
                 </div>
               </form>
             </div>

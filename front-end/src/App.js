@@ -22,6 +22,7 @@ import PrivetAdminRout from "./components/PrivetAdminRout/PrivetAdminRout";
 import NotFound from "./components/NotFound/NotFound";
 import PrivatClientRout from "./components/PrivatClientRout/PrivatClientRout";
 import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
+import Updatevoyage from "./components/admin/Voyages/Updatevoyage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/voyage" element={<Voyages />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/updateProfil' element={<UpdateProfil />} />
+              <Route path='/updateVoyage/:id' element={<Updatevoyage />} />
             </Route>
           </Route>
 

@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Addvoyage from './Addvoyage';
+import { API_URL } from '../../config'
+import axios from 'axios'
 
 const Voyages = () => {
+    const [voyage, setVoyage] = useState([])
+    const Allvoyage = () => {
+        axios.get(`${API_URL}/voyage/getall`).then((e) => {
+            setVoyage(e.data)
+        })
+    }
+    useEffect(() => {
+        Allvoyage()
+    }, [])
+
+    function deleted(id, name) {
+        const result = window.confirm(`are you sure to deleted ${name}`)
+        if (result) {
+            axios.delete(`${API_URL}/voyage/delete/${id}`)
+                .then(() => {
+                    Allvoyage()
+                })
+        }
+    }
+
     return (
         <div className="container-fluid">
             <div className="row mt-4">
                 <div className="col-md d-flex justify-content-between">
                     <div className="">
-                        <h3>Repas List</h3>
+                        <h3>Voyage List</h3>
                     </div>
                     <div className="">
                         <i className="bi bi-eject text-info me-2 fs-5"></i>
-                        <label htmlFor="adds" className='btn btn-info text-white'>ADD NEW REPAS</label>
+                        <label htmlFor="adds" className='btn btn-info text-white'>ADD NEW VOYAGE</label>
                     </div>
                 </div>
             </div>
@@ -27,24 +49,26 @@ const Voyages = () => {
                             <th scope="col">name</th>
                             <th scope="col">description</th>
                             <th scope='col'>price</th>
-                            <th scope='col'>categorie</th>
+                            <th scope='col'>date depart</th>
                             <th className="text-center">operation</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white">
-                        <tr className="align-middle">
-                            <td><img width={100} alt='...' src={"#"} /></td>
-                            <td className='text-nowrap'>name</td>
-                            <td >Lorem ipsum, dolor sit amet consectetur adipisicing elit</td>
-                            <td>200</td>
-                            <td>nadi</td>
-                            <td className="d-flex flex-row justify-content-end">
-                                <div className='text-nowrap'>
-                                    <Link to={`#`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
-                                    <button className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        {voyage.map((item) => (
+                            <tr className="align-middle" key={item._id}>
+                                <td><img width={100} alt='...' src={"http://localhost:8080/" + item.image} /></td>
+                                <td className='text-nowrap'>{item.destination}</td>
+                                <td >{item.description}</td>
+                                <td>{item.prix}</td>
+                                <td>{item.datedepart}</td>
+                                <td className="d-flex flex-row justify-content-end">
+                                    <div className='text-nowrap'>
+                                        <Link to={'/updateVoyage/' + item._id} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
+                                        <button className="btn btn-outline-danger" onClick={() => deleted(item._id, item.destination)}><i className="bi bi-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
