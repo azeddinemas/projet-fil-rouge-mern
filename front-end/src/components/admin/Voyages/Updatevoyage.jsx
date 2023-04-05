@@ -8,7 +8,7 @@ const Updatevoyage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [edit, setEdit] = useState({})
-    function getOne() {
+    const getOne = () => {
         axios.get(`${API_URL}/voyage/getone/${id}`)
             .then((e) => {
                 setEdit(e.data)
@@ -16,9 +16,10 @@ const Updatevoyage = () => {
                 console.log(err)
             })
     }
+
     useEffect(() => {
         getOne()
-    }, [])
+    }, [getOne])
 
     const handlechange = (e) => {
         setEdit({ ...edit, [e.target.name]: e.target.value })
@@ -35,7 +36,7 @@ const Updatevoyage = () => {
     }
     return (
         <div className='col-8 mx-auto mt-5'>
-            <form method='POST' className='mt-2'>
+            <form className='mt-2'>
                 <div className="mb-3">
                     <label className="form-label">destination</label>
                     <input type="text" className="form-control" onChange={handlechange} value={edit.destination || ''} placeholder='destination' name="destination" />
@@ -47,6 +48,10 @@ const Updatevoyage = () => {
                 <div className="mb-3">
                     <label className="form-label">price</label>
                     <input type="number" className="form-control" onChange={handlechange} value={edit.prix || ''} placeholder='price' name="prix" />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">current price</label>
+                    <input type="number" className="form-control" onChange={handlechange} value={edit.currentprix || ''} placeholder='currentprix' name="currentprix" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">date depart</label>

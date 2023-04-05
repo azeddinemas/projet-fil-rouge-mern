@@ -10,5 +10,6 @@ Router.get('/getone/:id', voyage.getOne)
 Router.post('/edit/:id', voyage.editvoyage)
 Router.delete('/delete/:id', voyage.deletevoyage)
 Router.get('/getpackage', voyage.getPackage)
+Router.get('/pagination', voyage.pagination)
 
 module.exports = Router;

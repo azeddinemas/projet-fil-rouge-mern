@@ -10,6 +10,9 @@ const voyage = mongoose.Schema({
     prix: {
         type: Number
     },
+    currentprix: {
+        type: Number
+    },
     description: {
         type: String
     },

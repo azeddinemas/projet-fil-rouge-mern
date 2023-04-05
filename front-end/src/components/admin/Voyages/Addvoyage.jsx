@@ -19,6 +19,7 @@ const Addvoyage = () => {
         formData.append('description', pack.description)
         formData.append('datedepart', pack.datedepart)
         formData.append('prix', pack.prix)
+        formData.append('currentprix', pack.currentprix)
         formData.append('image', pack.image)
 
         axios.post(`${API_URL}/voyage/add`, formData).then((element) => {
@@ -42,6 +43,10 @@ const Addvoyage = () => {
                 <div className="mb-3">
                     <label className="form-label">price</label>
                     <input type="number" className="form-control" onChange={change} placeholder='price' name="prix" />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">current price</label>
+                    <input type="number" className="form-control" onChange={change} placeholder='current price' name="currentprix" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">date depart</label>

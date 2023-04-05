@@ -2,34 +2,34 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../images/bg.jpg';
 import './login.css'
-import axios from 'axios'
-import { API_URL } from '../../config';
 import { ToastContainer, toast } from 'react-toastify';
 import jwt from 'jwt-decode';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../../Action/auth';
 
 const Login = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const isloged = useSelector(state => state.auth.isLoggedIn)
+  const data = useSelector(state => state.auth.data)
+
   const [user, setUser] = useState({})
   const handlchanger = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post(`${API_URL}/user/auth/login`, user)
-      .then((data) => {
-        localStorage.setItem('user', JSON.stringify(data.data))
-        const e = jwt(data.data)
-        if (e.data.role === 'client') {
-          navigate('/clientpage')
-        }
-        if (e.data.role === 'admin') {
-          navigate('/statistique')
-        }
-      }).catch((error) => {
-        toast.warning(error.response.data.message)
-      })
+  const handleSubmit = () => {
+    dispatch(login(user))
+    if (isloged) {
+      if (jwt(data).data.role === 'client') {
+        navigate('/clientpage')
+      } else if (jwt(data).data.role === 'admin') {
+        navigate('/statistique')
+      } else navigate('*')
+    }
   }
+
+
   return (
     <section className="vh-100" style={{ backgroundImage: `url(${img})`, backgroundSize: "cover" }}>
       <div className="w-100 h-100 d-flex align-items-center" style={{ backgroundColor: "#1E1F2459" }}>

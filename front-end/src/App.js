@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/auth/Login/Login";
 import Register from "./components/auth/Register/Register";
 import DashboardAdmin from "./components/admin/DashboardAdmin";
@@ -26,43 +26,41 @@ import Updatevoyage from "./components/admin/Voyages/Updatevoyage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
 
-        <Route element={<PrivatRoute />}>
-          <Route element={<PrivetAdminRout />}>
-            <Route element={<DashboardAdmin />}>
-              <Route path="/statistique" element={<Statistique />} />
-              <Route path="/client" element={<Client />} />
-              <Route path="/agent" element={<Agent />} />
-              <Route path="/voyage" element={<Voyages />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/updateProfil' element={<UpdateProfil />} />
-              <Route path='/updateVoyage/:id' element={<Updatevoyage />} />
-            </Route>
-          </Route>
-
-          <Route element={<DashAgent />}>
-            <Route path="/statistiqueagent" element={<Statistiqueagent />} />
-            <Route path="/reservation" element={<Reservation />} />
+      <Route element={<PrivatRoute />}>
+        <Route element={<PrivetAdminRout />}>
+          <Route element={<DashboardAdmin />}>
+            <Route path="/statistique" element={<Statistique />} />
+            <Route path="/client" element={<Client />} />
+            <Route path="/agent" element={<Agent />} />
             <Route path="/voyage" element={<Voyages />} />
-            {/* <Route path='/profile' element={<Profile />} /> */}
-            {/* <Route path='/updateProfil' element={<UpdateProfil />} /> */}
-          </Route>
-
-          <Route element={<PrivatClientRout />}>
-            <Route element={<Leandinpage />}>
-              <Route path="/clientpage" element={<Page />} />
-              <Route path="/ourPackage" element={<OurPackage />} />
-            </Route>
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/updateProfil' element={<UpdateProfil />} />
+            <Route path='/updateVoyage/:id' element={<Updatevoyage />} />
           </Route>
         </Route>
 
-      </Routes>
-    </BrowserRouter>
+        <Route element={<DashAgent />}>
+          <Route path="/statistiqueagent" element={<Statistiqueagent />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/voyage" element={<Voyages />} />
+          {/* <Route path='/profile' element={<Profile />} /> */}
+          {/* <Route path='/updateProfil' element={<UpdateProfil />} /> */}
+        </Route>
+
+        <Route element={<PrivatClientRout />}>
+          <Route element={<Leandinpage />}>
+            <Route path="/clientpage" element={<Page />} />
+            <Route path="/ourPackage" element={<OurPackage />} />
+          </Route>
+        </Route>
+      </Route>
+
+    </Routes>
   );
 }
 

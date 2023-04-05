@@ -22,6 +22,18 @@ const getall = (req, res) => {
             res.status(401).send(error)
         })
 }
+const pagination = async (req, res) => {
+    const page = req.query.page * 1 || 2;
+    const limit = req.query.limit * 1 || 5;
+    const skip = (page - 1) * limit;
+    voyage.find()
+        .then((data) => {
+            res.json({ result: data.length, data })
+        }).catch((error) => {
+            res.status(401).send(error)
+        })
+}
+
 const getPackage = (req, res) => {
 
     voyage.find().limit(4)
@@ -63,4 +75,4 @@ const deletevoyage = (req, res) => {
 }
 
 
-module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage }
+module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage, pagination }
