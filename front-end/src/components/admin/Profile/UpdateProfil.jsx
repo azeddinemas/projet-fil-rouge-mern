@@ -52,15 +52,15 @@ const UpdateProfil = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">current password</label>
-                  <input type="password" name="currentPassword" placeholder="password" onChange={handleChange} className="form-control" />
+                  <input type="password" name="currentPassword" placeholder="current password" onChange={handleChange} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">new password</label>
-                  <input type="password" name="newPassword" placeholder="password" onChange={handleChange} className="form-control" />
+                  <input type="password" name="newPassword" placeholder="new password" onChange={handleChange} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">confirmation</label>
-                  <input type="password" name="cpassword" placeholder="password" onChange={handleChange} className="form-control" />
+                  <input type="password" name="cpassword" placeholder="confirmation password" onChange={handleChange} className="form-control" />
                 </div>
 
                 <div className="form-group mt-2">

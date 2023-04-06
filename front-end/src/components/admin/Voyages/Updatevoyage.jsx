@@ -19,7 +19,7 @@ const Updatevoyage = () => {
 
     useEffect(() => {
         getOne()
-    }, [getOne])
+    }, [])
 
     const handlechange = (e) => {
         setEdit({ ...edit, [e.target.name]: e.target.value })

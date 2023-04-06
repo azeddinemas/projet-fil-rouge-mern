@@ -54,7 +54,7 @@ const Client = () => {
                                 <td>{cli.phone}</td>
                                 <td>{cli.active ? <span className="badge text-bg-success">Activé</span> : <span className="badge text-bg-danger">Désactivé</span>}</td>
                                 <td className="d-flex flex-row justify-content-end">
-                                    <button className="btn btn-outline-warning" onClick={() => { banie(cli._id) }}>{cli.active ? 'désactive' : 'active'}</button>
+                                    <button className={cli.active ? "btn btn-outline-danger" : "btn btn-outline-success"} onClick={() => { banie(cli._id) }}>{cli.active ? 'désactive' : 'active'}</button>
                                 </td>
                             </tr>
                         ))}

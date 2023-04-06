@@ -7,7 +7,7 @@ const statistique = async (req, res) => {
     const Allvoyage = await voyage.find().count()
     const Allclient = await users.find({ role: 'client' }).count()
     const agent = await users.find({ role: 'agent' }).count()
-    const AllUsers = await users.find().count()
+    const AllUsers = await users.find().skip(1).count()
     res.json({ Allvoyage, Allclient, agent, AllUsers })
 
 }
@@ -37,12 +37,12 @@ const updatePassword = async (req, res, next) => {
     }
 }
 
-const getAllClient = async (req, res) => {
+const getAllClient = async (req, res, next) => {
     try {
         const data = await users.find({ role: 'client' })
         res.send(data)
     } catch (error) {
-        res.send(error)
+        next(error)
     }
 }
 module.exports = { statistique, updatePassword, getAllClient, getAdmin }

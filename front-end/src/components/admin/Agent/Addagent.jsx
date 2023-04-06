@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../config'
 import { toast, ToastContainer } from "react-toastify";
@@ -11,7 +11,7 @@ const Addagent = () => {
     }
 
     const addAgent = () => {
-        axios.post(`${API_URL}/organism/add`, first)
+        axios.post(`${API_URL}/agent/add`, first)
             .then(() => {
                 toast.success('added success')
                 window.location.reload()
@@ -32,7 +32,11 @@ const Addagent = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">phone</label>
-                    <input type="text" className="form-control" onChange={change} placeholder='phone' name="phone" />
+                    <input type="tel" className="form-control" onChange={change} placeholder='phone' name="phone" />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">password</label>
+                    <input type="password" className="form-control" onChange={change} placeholder='password' name="password" />
                 </div>
 
                 <div className='mt-2'>

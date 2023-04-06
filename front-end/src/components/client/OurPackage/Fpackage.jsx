@@ -8,8 +8,8 @@ const Fpackage = () => {
         <p className="float-end mb-1">
           <Link to="#">Back to top</Link>
         </p>
-        <p className="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p className="mb-0">New to Bootstrap? <Link to="/">Visit the homepage</Link> or read our <Link to="/">getting started guide</Link>.</p>
+        <p className="mb-1">Album travel is &copy; azeddine, Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p className="mb-0">New to Bootstrap? <Link to="/clientpage">Visit the homepage</Link> or read our <Link to="/">getting started guide</Link>.</p>
       </div>
     </div>
   )

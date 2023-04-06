@@ -8,9 +8,8 @@ import { API_URL } from '../../config';
 const OurPackage = () => {
   const [packag, setPackag] = useState([])
   const getAll = () => {
-    axios.get(`${API_URL}/voyage/pagination`).then((element) => {
-      setPackag(element.data.data)
-      console.log(packag.length);
+    axios.get(`${API_URL}/voyage/getall`).then((element) => {
+      setPackag(element.data)
     })
   }
 
@@ -21,11 +20,10 @@ const OurPackage = () => {
 
   const [current, setCurrent] = useState(1)
 
-  const product = 5
+  const product = 4
   const pages = Math.ceil(packag.length / product)
   const start = (current - 1) * product
   const finish = current * product
-  // let order = packag.slice(start, finish)
 
 
   const generatPage = [];
@@ -62,19 +60,17 @@ const OurPackage = () => {
             </div>
             <nav aria-label="Page navigation">
               <ul className="pagination justify-content-end">
-                <li className="page-item" onClick={() => setCurrent(prev => prev - 1)}><Link className="page-link" to="#">Previous</Link></li>
+                <button className="btn p-0 m-0 border-0 page-item" disabled={current === 1} onClick={() => setCurrent(prev => prev - 1)}><Link className="page-link" to="#">Previous</Link></button>
                 {generatPage.map((p) => (
                   <div onClick={() => { setCurrent(p) }} className={current === p ? "page-item active" : "page-item"} key={p}><Link className="page-link" to="#">{p}</Link></div>
                 ))}
-                <li className="page-item" onClick={() => setCurrent(prev => prev + 1)}><Link className="page-link" to="#">Next</Link></li>
+                <button className="btn p-0 m-0 border-0 page-item" disabled={current === pages} onClick={() => setCurrent(prev => prev + 1)}><Link className="page-link" to="#">Next</Link></button>
               </ul>
             </nav>
           </div>
         </div>
       </main >
       <Fpackage />
-
-
     </>
   )
 }
