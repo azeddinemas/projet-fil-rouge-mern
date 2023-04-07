@@ -35,29 +35,8 @@ const OurPackage = () => {
     <>
       <main>
         <Hpackage />
-        <div className="py-5 bg-secondary">
+        <div className="py-4 bg-secondary">
           <div className="container">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
-              {packag.slice(start, finish).map((item) => (
-                <div className="col" key={item._id}>
-                  <div className="card shadow-sm">
-                    <img src={'http://localhost:8080/' + item.image} className="bd-placeholder-img card-img-top" alt="..." />
-                    <div className="card-body">
-                      <p className="card-text">{item.description}</p>
-                      <p className="card-text">{item.destination}</p>
-                      <p className="card-text">{item.prix} DH</p>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div className="btn-group">
-                          <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
-                          <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small className="text-muted">date depart : {item.datedepart}</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
             <nav aria-label="Page navigation">
               <ul className="pagination justify-content-end">
                 <button className="btn p-0 m-0 border-0 page-item" disabled={current === 1} onClick={() => setCurrent(prev => prev - 1)}><Link className="page-link" to="#">Previous</Link></button>
@@ -67,6 +46,27 @@ const OurPackage = () => {
                 <button className="btn p-0 m-0 border-0 page-item" disabled={current === pages} onClick={() => setCurrent(prev => prev + 1)}><Link className="page-link" to="#">Next</Link></button>
               </ul>
             </nav>
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
+              {packag.slice(start, finish).map((item) => (
+                <div className="col" key={item._id}>
+                  <div className="card shadow-sm">
+                    <img src={`${API_URL}/` + item.image} className="bd-placeholder-img card-img-top" alt="..." />
+                    <div className="card-body">
+                      <p className="card-text">{item.description.slice(0, 86)}...</p>
+                      <p className="card-text">{item.destination}</p>
+                      <p className="card-text">{item.prix} DH</p>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
+                          <Link to={`/detail/${item._id}`} type="button" className="btn btn-sm btn-outline-secondary">View</Link>
+                        </div>
+                        <small className="text-muted">Départ : {item.datedepart}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </main >

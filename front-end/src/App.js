@@ -23,6 +23,7 @@ import NotFound from "./components/NotFound/NotFound";
 import PrivatClientRout from "./components/PrivatClientRout/PrivatClientRout";
 import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
 import Updatevoyage from "./components/admin/Voyages/Updatevoyage";
+import Detail from "./components/client/Detail/Detail";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route element={<Leandinpage />}>
             <Route path="/clientpage" element={<Page />} />
             <Route path="/ourPackage" element={<OurPackage />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Route>
         </Route>
       </Route>

@@ -40,15 +40,15 @@ const UpdateProfil = () => {
               <form>
                 <div className="form-group">
                   <label htmlFor="">name</label>
-                  <input type="text" name="name" placeholder="name" onChange={handleChange} value={pr.name} className="form-control" />
+                  <input type="text" name="name" placeholder="name" onChange={handleChange} value={pr.name || ''} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">email</label>
-                  <input type="text" name="email" placeholder="email" onChange={handleChange} value={pr.email} className="form-control" />
+                  <input type="text" name="email" placeholder="email" onChange={handleChange} value={pr.email || ''} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Phone</label>
-                  <input type="tel" name="phone" placeholder="phone" onChange={handleChange} value={pr.phone} className="form-control" />
+                  <input type="tel" name="phone" placeholder="phone" onChange={handleChange} value={pr.phone || ''} className="form-control" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="">current password</label>

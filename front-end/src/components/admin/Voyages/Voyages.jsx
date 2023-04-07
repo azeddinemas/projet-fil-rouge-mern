@@ -79,7 +79,7 @@ const Voyages = () => {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">description</label>
-                        <input type="text" className="form-control" onChange={change} placeholder='description' name="description" />
+                        <textarea name="description" className='form-control' id="" onChange={change} rows="1" placeholder='description'></textarea>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">price</label>
@@ -119,9 +119,9 @@ const Voyages = () => {
                     <tbody className="bg-white overflow-auto">
                         {voyage.map((item) => (
                             <tr className="align-middle" key={item._id}>
-                                <td><img width={100} alt='...' src={"http://localhost:8080/" + item.image} /></td>
+                                <td><img width={100} alt='...' src={`${API_URL}/` + item.image} /></td>
                                 <td className='text-nowrap'>{item.destination}</td>
-                                <td >{item.description}</td>
+                                <td >{item.description.slice(0, 70)}...</td>
                                 <td>{item.prix}</td>
                                 <td>{item.currentprix}</td>
                                 <td>{item.datedepart}</td>

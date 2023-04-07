@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from "axios";
 import { API_URL } from '../../config';
+import Tippy from '@tippyjs/react';
 
 const Updatevoyage = () => {
     const { id } = useParams();
@@ -36,6 +37,9 @@ const Updatevoyage = () => {
     }
     return (
         <div className='col-8 mx-auto mt-5'>
+            <Tippy arrow={false} animation='scale' placement='left' content='Back'>
+                <Link className='btn btn-sm btn-info text-white' to={'/voyage'}><i className="bi bi-arrow-left fs-5"></i></Link>
+            </Tippy>
             <form className='mt-2'>
                 <div className="mb-3">
                     <label className="form-label">destination</label>
@@ -43,7 +47,8 @@ const Updatevoyage = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">description</label>
-                    <input type="text" className="form-control" onChange={handlechange} value={edit.description || ''} placeholder='description' name="description" />
+                    <textarea name="description" className="form-control" placeholder='description' onChange={handlechange} value={edit.description || ''}></textarea>
+                    {/* <input type="text" className="form-control" onChange={handlechange} value={edit.description || ''} placeholder='description' name="description" /> */}
                 </div>
                 <div className="mb-3">
                     <label className="form-label">price</label>
