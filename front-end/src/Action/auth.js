@@ -8,9 +8,10 @@ import { toast } from "react-toastify";
 export const login = (user) => (dispatch) => {
     axios.post(`${API_URL}/user/auth/login`, user)
         .then((data) => {
-            const ls = localStorage.setItem('user', JSON.stringify(data.data))
+            localStorage.setItem('user', JSON.stringify(data.data))
             dispatch({ type: LOGIN_SUCCESS, payload: data.data })
         }).catch((error) => {
+            dispatch({ type: LOGIN_FAIL, payload: null })
             toast.warning(error.response.data.message)
         })
 }
