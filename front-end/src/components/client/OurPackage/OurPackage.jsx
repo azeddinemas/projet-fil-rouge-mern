@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Fpackage from './Fpackage';
 import Hpackage from './Hpackage';
 import axios from 'axios'
 import { API_URL } from '../../config';
 
+
 const OurPackage = () => {
+  const navigate = useNavigate();
   const [packag, setPackag] = useState([])
   const getAll = () => {
     axios.get(`${API_URL}/voyage/getall`).then((element) => {
@@ -36,6 +38,7 @@ const OurPackage = () => {
       <main>
         <Hpackage />
         <div className="py-4 bg-secondary">
+          <button className='btn btn-warning mx-5' onClick={() => navigate(-1)}><i class="bi bi-arrow-left fs-5 text-white"></i></button>
           <div className="container">
             <nav aria-label="Page navigation">
               <ul className="pagination justify-content-end">
@@ -46,6 +49,7 @@ const OurPackage = () => {
                 <button className="btn p-0 m-0 border-0 page-item" disabled={current === pages} onClick={() => setCurrent(prev => prev + 1)}><Link className="page-link" to="#">Next</Link></button>
               </ul>
             </nav>
+
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
               {packag.slice(start, finish).map((item) => (
                 <div className="col" key={item._id}>

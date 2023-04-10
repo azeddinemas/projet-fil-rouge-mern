@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import img from '../../images/bg.jpg';
 import './login.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import jwt from 'jwt-decode';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../Action/auth';
@@ -12,29 +12,40 @@ const Login = () => {
   const navigate = useNavigate()
   const isloged = useSelector(state => state.auth.isLoggedIn)
   const data = useSelector(state => state.auth.data)
+  // 
 
   const [user, setUser] = useState({})
   const handlchanger = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
-
-  const handleSubmit = () => {
+  // console.log();
+  const handleSubmit = (e) => {
+    e.preventDefault()
     dispatch(login(user))
-    if (isloged) {
-      if (jwt(data).data.role === 'client') {
-        navigate('/clientpage')
-      } else if (jwt(data).data.role === 'admin') {
-        navigate('/statistique')
-      } else navigate('*')
-    }
+
   }
+  useEffect(() => {
+    if (isloged && jwt(data).data.role === 'client') {
+      // const token = jwt(data)
+
+      // <Navigate to={'/clientpage'} />
+      return navigate('/clientpage')
+    } else if (isloged && jwt(data).data.role === 'admin') {
+      // <Navigate to={'/statistique'} />
+      return navigate('/statistique')
+
+    }
+  }, [isloged])
+
+
+
 
 
   return (
     <section className="vh-100" style={{ backgroundImage: `url(${img})`, backgroundSize: "cover" }}>
       <div className="w-100 h-100 d-flex align-items-center" style={{ backgroundColor: "#1E1F2459" }}>
         <main className="form-signin w-100 m-auto p-3 text-center rounded-4" style={{ maxWidth: 380, backgroundColor: "#f5f5f5" }}>
-          <form>
+          <form method=''>
             <img className="mb-4" src={require('../../images/4206917.png')} alt="..." width="130" />
             <h1 className="h3 mb-3 fw-normal">Please <span style={{ color: "#ff9847" }}>sign</span><span style={{ color: "#ad59e8" }}>in</span></h1>
 

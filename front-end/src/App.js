@@ -18,10 +18,10 @@ import UpdateProfil from "./components/admin/Profile/UpdateProfil";
 import Leandinpage from "./components/client/Leandinpage";
 import Page from "./components/client/Page";
 import OurPackage from "./components/client/OurPackage/OurPackage";
-import PrivetAdminRout from "./components/PrivetAdminRout/PrivetAdminRout";
+import PrivetAdminRout from "./components/Private/PrivetAdminRout/PrivetAdminRout";
 import NotFound from "./components/NotFound/NotFound";
-import PrivatClientRout from "./components/PrivatClientRout/PrivatClientRout";
-import PrivatRoute from "./components/PrivatRoute/PrivatRoute";
+import PrivatClientRout from "./components/Private/PrivatClientRout/PrivatClientRout";
+import PrivatRoute from "./components/Private/PrivatRoute/PrivatRoute";
 import Updatevoyage from "./components/admin/Voyages/Updatevoyage";
 import Detail from "./components/client/Detail/Detail";
 
