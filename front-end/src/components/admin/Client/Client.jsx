@@ -35,7 +35,7 @@ const Client = () => {
                 </div>
             </div>
             <hr />
-            <div style={{ width: "99%", margin: "auto" }} className="row overflow-auto">
+            <div style={{ width: "99%", height: "70vh", margin: "auto" }} className="row overflow-auto">
                 <table className="table" id="myTable">
                     <thead>
                         <tr style={{ color: "#acacac" }}>
@@ -46,7 +46,7 @@ const Client = () => {
                             <th className="text-center">operation</th>
                         </tr>
                     </thead>
-                    <tbody className="bg-white">
+                    <tbody className="bg-white overflow-auto">
                         {client.map(cli => (
                             <tr className="align-middle" key={cli._id}>
                                 <td className='text-nowrap'>{cli.name}</td>

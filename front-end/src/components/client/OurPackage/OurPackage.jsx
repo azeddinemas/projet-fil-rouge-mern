@@ -4,6 +4,7 @@ import Fpackage from './Fpackage';
 import Hpackage from './Hpackage';
 import axios from 'axios'
 import { API_URL } from '../../config';
+import Tippy from '@tippyjs/react';
 
 
 const OurPackage = () => {
@@ -38,7 +39,9 @@ const OurPackage = () => {
       <main>
         <Hpackage />
         <div className="py-4 bg-secondary">
-          <button className='btn btn-warning mx-5' onClick={() => navigate(-1)}><i class="bi bi-arrow-left fs-5 text-white"></i></button>
+          <Tippy arrow={false} animation='scale' placement='right' content="go back">
+            <button className='btn btn-warning mx-5' onClick={() => navigate(-1)}><i class="bi bi-arrow-left fs-5 text-white"></i></button>
+          </Tippy>
           <div className="container">
             <nav aria-label="Page navigation">
               <ul className="pagination justify-content-end">
