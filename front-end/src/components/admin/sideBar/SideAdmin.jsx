@@ -26,7 +26,7 @@ const SideAdmin = () => {
                 <h4 className='d-none d-sm-block'>Azeddine</h4>
                 <p className="text-info mt-5 mt-sm-0">Admin</p>
                 <hr />
-                <nav className="text-sm-start mt-5 pb-5 p-sm-2">
+                <nav className="text-sm-start mt-5 mt-sm-0 p-sm-2">
                     <NavLink className="nav-link p-1 p-sm-2" to={"/statistique"}>
                         <Tippy arrow={false} animation='scale' placement='right' content='Dashboard'>
                             <i className="bi bi-speedometer2 fs-5 me-sm-2"></i>
