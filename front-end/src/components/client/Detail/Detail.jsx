@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config';
 import Tippy from '@tippyjs/react';
 
 const Detail = () => {
     const { id } = useParams();
+    const navigate = useNavigate()
     const [detail, setDetail] = useState({})
     const getOne = () => {
         axios.get(`${API_URL}/voyage/getone/${id}`)
@@ -34,7 +35,7 @@ const Detail = () => {
                 </div>
                 <div className="col-md-6">
                     <Tippy arrow={false} animation='scale' placement='right' content="Home page">
-                        <Link to="/clientpage" className="btn btn-sm m-2" style={{ backgroundColor: '#ffab6f' }}><i className="bi bi-house-door fs-5 text-white"></i></Link>
+                        <button onClick={() => { navigate(-1) }} className="btn btn-sm m-2" style={{ backgroundColor: '#ffab6f' }}><i className="bi bi-house-door fs-5 text-white"></i></button>
                     </Tippy>
                     <h2 className='my-3'>{detail.destination}</h2>
                     <h3 className='my-3'>price : {detail.prix} DH </h3>

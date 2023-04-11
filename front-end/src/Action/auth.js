@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from "./type";
+import { LOGIN_FAIL, LOGIN_SUCCESS } from "./type";
 import { API_URL } from "../components/config";
 // import jwt from 'jwt-decode';
 import axios from 'axios'

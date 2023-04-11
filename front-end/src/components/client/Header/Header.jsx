@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import img from '../../images/4206917.png'
 import './header.css'
-import { isAunthenticated } from '../../isAunthenticated/isAunthenticated';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -29,12 +28,7 @@ const Header = () => {
           <Link to="services" className="text-dark">services</Link>
           <Link to="review" className="text-dark">review</Link>
           <Link to="contact" className="text-dark">contact</Link>
-          {isAunthenticated() && (
-            <button onClick={signout} className="btn rounded-3 text-white border-bottom-0" style={{ backgroundColor: "#F79F1F" }}>Déconnexion</button>
-          )}
-          {!isAunthenticated() && (
-            <Link to="#" className="btn rounded-3 text-white border-bottom-0" style={{ backgroundColor: "#F79F1F" }}>Se connecter</Link>
-          )}
+          <button onClick={signout} className="btn rounded-3 text-white border-bottom-0" style={{ backgroundColor: "#F79F1F" }}>Déconnexion</button>
         </div>
       </nav>
     </header>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL } from '../../config'
 import { ToastContainer, toast } from 'react-toastify'
 
 const UpdateProfil = () => {
+  const navigate = useNavigate();
   const [pr, setPr] = useState({})
 
   const getAdmin = () => {
@@ -36,7 +37,7 @@ const UpdateProfil = () => {
           <div className="card">
             <div className="card-header">Modifier votre profile</div>
             <div className="card-body bg-light">
-              <Link to="/profile" className="btn btn-sm btn-info m-2"><i className="bi bi-house text-white"></i></Link>
+              <button onClick={() => navigate(-1)} className="btn btn-sm btn-info m-2"><i className="bi bi-house text-white"></i></button>
               <form>
                 <div className="form-group">
                   <label htmlFor="">name</label>
