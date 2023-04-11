@@ -1,6 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { API_URL } from '../../config'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const Client = () => {
+    const [client, setClient] = useState([])
+    function getAll() {
+        axios.get(`${API_URL}/admin/allclient`).then((e) => {
+            setClient(e.data)
+        })
+    }
+
+    useEffect(() => {
+        getAll()
+    }, [])
+
+    function banie(id) {
+        axios.put(`${API_URL}/user/auth/banie/${id}`).then((data) => {
+            toast.success(data.data)
+            getAll()
+        })
+    }
+
     return (
         <div className="container-fluid">
             <div className="row mt-4">
@@ -18,27 +39,26 @@ const Client = () => {
                 <table className="table" id="myTable">
                     <thead>
                         <tr style={{ color: "#acacac" }}>
-                            <th scope='col'>image</th>
                             <th scope="col">name</th>
-                            <th scope="col">description</th>
-                            <th scope='col'>price</th>
-                            <th scope='col'>categorie</th>
+                            <th scope="col">email</th>
+                            <th scope='col'>phone</th>
+                            <th scope='col'>status</th>
                             <th className="text-center">operation</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white">
-                        <tr className="align-middle">
-                            <td><img width={100} src={"#"} alt='...' /></td>
-                            <td className='text-nowrap'>name</td>
-                            <td >Lorem ipsum, dolor sit amet consectetur adipisicing elit</td>
-                            <td>200</td>
-                            <td>nadi</td>
-                            <td className="d-flex flex-row justify-content-end">
-                                <div className='text-nowrap'>
-                                    <button className="btn btn-outline-danger">désactive</button>
-                                </div>
-                            </td>
-                        </tr>
+                        {client.map(cli => (
+                            <tr className="align-middle" key={cli._id}>
+                                <td className='text-nowrap'>{cli.name}</td>
+                                <td >{cli.email}</td>
+                                <td>{cli.phone}</td>
+                                <td>{cli.active ? <span className="badge text-bg-success">Activé</span> : <span className="badge text-bg-danger">Désactivé</span>}</td>
+                                <td className="d-flex flex-row justify-content-end">
+                                    <button className={cli.active ? "btn btn-outline-danger" : "btn btn-outline-success"} onClick={() => { banie(cli._id) }}>{cli.active ? 'désactive' : 'active'}</button>
+                                </td>
+                            </tr>
+                        ))}
+
                     </tbody>
                 </table>
             </div>

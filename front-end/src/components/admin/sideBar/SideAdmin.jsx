@@ -1,11 +1,18 @@
 import React from 'react'
 import './Side.css'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import img from '../../images/pic-1.png';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/animations/scale.css';
+import { useNavigate } from 'react-router-dom';
 
 const SideAdmin = () => {
+    const navigate = useNavigate()
+    const signout = () => {
+        localStorage.removeItem('user')
+        navigate('/')
+
+    }
     return (
         <>
             <input type="checkbox" id="menu" className='d-none' />
@@ -27,34 +34,48 @@ const SideAdmin = () => {
                         <span className='d-none d-sm-inline'>Dashboard</span>
                     </NavLink>
                     <br />
+                    <NavLink className="nav-link p-1 p-sm-2" to={"/voyage"}>
+                        <Tippy arrow={false} animation='scale' placement='right' content="voyage">
+                            <i className="bi bi-grid fs-5 me-sm-2"></i>
+                        </Tippy>
+                        <span className="d-none d-sm-inline">voyage</span>
+                    </NavLink>
+                    <br />
                     <NavLink className="nav-link p-1 p-sm-2" to={"/agent"}>
-                        <Tippy arrow={false} placement='right' content="Agent">
+                        <Tippy arrow={false} animation='scale' placement='right' content="Agent">
                             <i className="bi bi-person-vcard fs-5 me-sm-2"></i>
                         </Tippy>
                         <span className="d-none d-sm-inline">Agent</span>
                     </NavLink>
                     <br />
                     <NavLink className="nav-link p-1 p-sm-2" to={"/client"}>
-                        <Tippy arrow={false} placement='right' content='Client'>
+                        <Tippy arrow={false} animation='scale' placement='right' content='Client'>
                             <i className="bi bi-people me-sm-2 fs-5"></i>
                         </Tippy>
                         <span className='d-none d-sm-inline'>Client</span>
                     </NavLink>
                     <br />
+                    <NavLink className="nav-link p-1 p-sm-2" to={"/profile"}>
+                        <Tippy arrow={false} animation='scale' placement='right' content='Profil'>
+                            <i className="bi bi-person me-sm-2 fs-5"></i>
+                        </Tippy>
+                        <span className='d-none d-sm-inline'>Profil</span>
+                    </NavLink>
+                    <br />
                     <NavLink className="nav-link p-1 p-sm-2" to={"/#"}>
-                        <Tippy arrow={false} placement='right' content='Client'>
+                        <Tippy arrow={false} animation='scale' placement='right' content='settings'>
                             <i className="bi bi-sliders2 me-sm-2 fs-5"></i>
                         </Tippy>
                         <span className='d-none d-sm-inline'>Settings</span>
                     </NavLink>
                     <br />
                 </nav>
-                <Link to={"#"} className="nav-link p-2 mt-5 mt-sm-0">
+                <button onClick={signout} className="p-2 mt-5 mt-sm-0 border-0 mx-auto">
                     <Tippy arrow={false} placement='right' content='Déconnexion'>
                         <i className="bi bi-box-arrow-right me-sm-2 fs-5"></i>
                     </Tippy>
                     <span className='d-none d-sm-inline'>Logout</span>
-                </Link>
+                </button>
             </div>
         </>
     )

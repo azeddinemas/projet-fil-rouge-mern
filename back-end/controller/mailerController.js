@@ -33,8 +33,8 @@ function confirm(req, res) {
     const token = req.params.token
     const eml = jwt.verify(token, process.env.SECRET)
     User.findOneAndUpdate({ email: eml.email }, { confirmed: true }).then(() => {
-        res.send('email confirmed avec success')
-        // res.redirect('http://localhost:3000/')
+        // res.send('email confirmed avec success')
+        res.redirect('http://localhost:3000/')
     }).catch(() => {
         console.log('not confirmed')
     })

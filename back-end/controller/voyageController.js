@@ -22,6 +22,8 @@ const getall = (req, res) => {
             res.status(401).send(error)
         })
 }
+
+
 const getPackage = (req, res) => {
 
     voyage.find().limit(4)

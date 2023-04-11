@@ -5,43 +5,44 @@ const bcrypt = require('bcryptjs')
 
 const statistique = async (req, res) => {
     const Allvoyage = await voyage.find().count()
-    const AllUser = await users.find({ role: 'client' }).count()
-    res.json({ Allvoyage, AllUser })
-
-}
-const profile = async (req, res) => {
-    const AllUser = await users.find({ role: 'admin' })
-    res.send(AllUser)
+    const Allclient = await users.find({ role: 'client' }).count()
+    const agent = await users.find({ role: 'agent' }).count()
+    const AllUsers = await users.find().skip(1).count()
+    res.json({ Allvoyage, Allclient, agent, AllUsers })
 
 }
 
-const updatePassword = (req, res) => {
-    const { body } = req;
-    users.findOne({ role: 'admin' })
-        .then((data) => {
-            bcrypt.compare(body.password, data.password)
-                .then((e) => {
-                    if (e) {
-                        bcrypt.hash(body.newPassword, 10)
-                            .then((pass) => {
-                                users.updateOne({ role: 'admin' }, { password: pass })
-                                    .then(() => {
-                                        res.send('edite password avec success')
-                                    }).catch((error) => { res.send(error) })
-                            }).catch((err) => {
-                                res.status(401).send(err)
-                            })
-                    } else res.send('Current password incorrect')
-                }).catch(err => { console.log(err) })
-        }).catch((err) => { res.send(err) })
+const getAdmin = (req, res) => {
+    users.findOne({ role: 'admin' }).then((data) => {
+        res.send(data)
+    })
 }
 
-const getAllClient = async (req, res) => {
+const updatePassword = async (req, res, next) => {
+    try {
+        const { body } = req;
+        const data = await users.findOne({ role: 'admin' });
+        const isMatch = await bcrypt.compare(body.currentPassword, data.password);
+        if (isMatch) {
+            const nPass = await bcrypt.hash(body.newPassword, 10)
+            if (nPass) {
+                const editePass = await users.findOneAndUpdate({ role: 'admin' }, { password: nPass })
+                if (editePass) {
+                    res.send('edite password avec success')
+                } else throw Error('not edit')
+            } else throw Error('err bcrypt')
+        } else throw Error('current password incorrect')
+    } catch (err) {
+        next(err)
+    }
+}
+
+const getAllClient = async (req, res, next) => {
     try {
         const data = await users.find({ role: 'client' })
         res.send(data)
     } catch (error) {
-        res.send(error)
+        next(error)
     }
 }
-module.exports = { statistique, updatePassword, profile, getAllClient }
+module.exports = { statistique, updatePassword, getAllClient, getAdmin }

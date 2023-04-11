@@ -1,11 +1,10 @@
-import jwt from 'jwt-decode';
 import { Navigate, Outlet } from 'react-router-dom';
+import { isAunthenticated } from '../isAunthenticated/isAunthenticated';
 
 const PrivetAdminRout = () => {
-    const ls = JSON.parse(localStorage.getItem('user'))
-    const isLogged = jwt(ls)
     return (
-        isLogged.data.role === 'client' ? <Outlet /> : <Navigate to='/' />
+        // isLogged.data.role === 'client' ? <Outlet /> : <Navigate to='/' />
+        isAunthenticated() && isAunthenticated().data.role === 'admin' ? <Outlet /> : <Navigate to='*' />
     )
 }
 
