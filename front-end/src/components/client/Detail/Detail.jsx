@@ -34,8 +34,8 @@ const Detail = () => {
                     <img src={`${API_URL}/${detail.image}`} alt="..." className="img-fluid" />
                 </div>
                 <div className="col-md-6">
-                    <Tippy arrow={false} animation='scale' placement='right' content="Home page">
-                        <button onClick={() => { navigate(-1) }} className="btn btn-sm m-2" style={{ backgroundColor: '#ffab6f' }}><i className="bi bi-house-door fs-5 text-white"></i></button>
+                    <Tippy arrow={false} animation='scale' placement='right' content="Go back">
+                        <button onClick={() => { navigate(-1) }} className="btn btn-sm m-2" style={{ backgroundColor: '#ffab6f' }}><i className="bi bi-arrow-left fs-4 text-white"></i></button>
                     </Tippy>
                     <h2 className='my-3'>{detail.destination}</h2>
                     <h3 className='my-3'>price : {detail.prix} DH </h3>
@@ -49,7 +49,7 @@ const Detail = () => {
                             <input type="number" className="form-control" name='counter' min={1} onChange={chang} />
                         </div>
                         <div className="text-right mt-3">
-                            <h3>Total: {quantity.counter ? detail.prix * quantity.counter : 0} DH</h3>
+                            <h3 name='azert'>Total: {quantity.counter ? detail.prix * quantity.counter : 0} DH</h3>
                         </div>
                         <button className="btn mt-4 text-white" style={{ backgroundColor: '#f79f1f' }}>Add to Cart</button>
                     </form>

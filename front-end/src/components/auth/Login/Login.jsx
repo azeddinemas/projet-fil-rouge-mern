@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../images/bg.jpg';
 import './login.css'
 import { ToastContainer } from 'react-toastify';
@@ -12,13 +12,12 @@ const Login = () => {
   const navigate = useNavigate()
   const isloged = useSelector(state => state.auth.isLoggedIn)
   const data = useSelector(state => state.auth.data)
-  // 
+
 
   const [user, setUser] = useState({})
   const handlchanger = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
-  // console.log();
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(login(user))
@@ -26,12 +25,10 @@ const Login = () => {
   }
   useEffect(() => {
     if (isloged && jwt(data).data.role === 'client') {
-      // const token = jwt(data)
 
-      // <Navigate to={'/clientpage'} />
       return navigate('/clientpage')
     } else if (isloged && jwt(data).data.role === 'admin') {
-      // <Navigate to={'/statistique'} />
+
       return navigate('/statistique')
 
     }

@@ -17,7 +17,7 @@ const register = (req, res, next) => {
                             users.create({ ...body, password: e, role: 'client' })
                                 .then((data) => { res.send('created avec success') })
                         } else throw Error('password invalid')
-                    }).catch((err) => { console.log(err) })
+                    }).catch((err) => { throw Error })
             } else throw Error('email already exist')
         }).catch((error) => { next(error); })
 }

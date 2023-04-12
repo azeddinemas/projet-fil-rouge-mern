@@ -34,33 +34,33 @@ const getPackage = (req, res) => {
         })
 }
 
-const getOne = (req, res) => {
+const getOne = (req, res, next) => {
     const { id } = req.params
     voyage.findOne({ _id: id }).then((data) => {
         res.send(data)
     }).catch((error) => {
-        res.status(401).send(error)
+        next(error)
     })
 }
 
-const editvoyage = (req, res) => {
+const editvoyage = (req, res, next) => {
     const { body } = req;
     const id = req.params.id;
 
     voyage.updateOne({ _id: id }, { ...body }).then(() => {
         res.send('update success')
     }).catch((error) => {
-        res.status(401).send(error)
+        next(error)
     })
 }
 
-const deletevoyage = (req, res) => {
+const deletevoyage = (req, res, next) => {
     const { id } = req.params
 
     voyage.deleteOne({ _id: id }).then(() => {
         res.send('deleted success')
     }).catch((error) => {
-        res.status(401).send(error)
+        next(error)
     })
 }
 

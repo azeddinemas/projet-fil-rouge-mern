@@ -1,27 +1,29 @@
 import React, { useState } from 'react'
 import img from '../../images/bg.jpg';
-import { API_URL } from '../../config';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../../Action/auth';
 
 const Register = () => {
   const [user, setUser] = useState({})
   const handlchanger = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const reg = useSelector(state => state.auth.register)
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (user.confirmation === user.password) {
-      axios.post(`${API_URL}/user/auth/register`, user)
-        .then((data) => {
-          toast.success(data.data)
-        }).catch((error) => {
-          toast.error(error.response.data.message)
-        })
-    } else toast.warning('confirmation incorrect')
+    dispatch(register(user))
   }
+
+  setTimeout(() => {
+    if (reg) {
+      navigate('/')
+    }
+  }, 2500);
+
   return (
     <main className="w-100 vh-100" style={{ backgroundImage: `url(${img})`, backgroundSize: 'cover' }}>
       <div className='w-100 h-100 d-flex justify-content-center align-items-center' style={{ backgroundColor: "#1E1F2459" }}>

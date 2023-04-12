@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
 import Agent from "./components/admin/Agent/Agent";
 import DashAgent from "./components/agent/DashAgent";
 import Statistiqueagent from "./components/agent/Statistiqueagent/Statistiqueagent";

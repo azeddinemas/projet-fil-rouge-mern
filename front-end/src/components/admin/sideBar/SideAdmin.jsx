@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Side.css'
 import { NavLink } from 'react-router-dom'
 import img from '../../images/pic-1.png';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/animations/scale.css';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from '../../config';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../Action/auth';
 
 const SideAdmin = () => {
-    const navigate = useNavigate()
-    const signout = () => {
-        localStorage.removeItem('user')
-        navigate('/')
+    const [p, setP] = useState({})
 
+    const getAdmin = () => {
+        axios.get(`${API_URL}/admin/getAdmin`).then((data) => {
+            setP(data.data)
+        })
     }
+    useEffect(() => {
+        getAdmin()
+    }, [])
+
+    const dispatch = useDispatch()
+    const signout = () => {
+        dispatch(logout)
+        window.location.reload()
+    }
+
     return (
         <>
             <input type="checkbox" id="menu" className='d-none' />
@@ -23,10 +36,10 @@ const SideAdmin = () => {
                 </h3>
                 <br />
                 <img className="rounded rounded-circle w-50 d-none d-sm-inline" src={img} alt='...' />
-                <h4 className='d-none d-sm-block'>Azeddine</h4>
-                <p className="text-info mt-5 mt-sm-0">Admin</p>
+                <h4 className='d-none d-sm-block'>{p.name}</h4>
+                <p className="text-info mt-5 mt-sm-0">{p.role}</p>
                 <hr />
-                <nav className="text-sm-start mt-5 pb-5 p-sm-2">
+                <nav id='active' className="text-sm-start mt-5 mt-sm-0 p-sm-2">
                     <NavLink className="nav-link p-1 p-sm-2" to={"/statistique"}>
                         <Tippy arrow={false} animation='scale' placement='right' content='Dashboard'>
                             <i className="bi bi-speedometer2 fs-5 me-sm-2"></i>
