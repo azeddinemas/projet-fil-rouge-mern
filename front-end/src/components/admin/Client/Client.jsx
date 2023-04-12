@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../../config'
 import axios from 'axios'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 
 const Client = () => {
     const [client, setClient] = useState([])
@@ -62,6 +62,7 @@ const Client = () => {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer />
         </div>
     )
 }

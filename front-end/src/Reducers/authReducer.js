@@ -11,12 +11,13 @@ export const authReducer = (state = initialState, action) => {
         case REGISTER_SUCCESS:
             return {
                 ...state,
-                isLoggedIn: false,
+                register: true,
+                data: action.payload
             };
         case REGISTER_FAIL:
             return {
                 ...state,
-                isLoggedIn: false,
+                register: false,
             };
         case LOGIN_SUCCESS:
             return {

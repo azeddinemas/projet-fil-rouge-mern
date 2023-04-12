@@ -3,10 +3,16 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import img from '../../images/4206917.png'
 import './header.css'
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../Action/auth';
+
 
 const Header = () => {
-  const signout = () => {
-    localStorage.removeItem('user')
+
+  const dispatch = useDispatch()
+  const signout = (e) => {
+    e.preventDefault()
+    dispatch(logout)
     window.location.reload()
 
   }

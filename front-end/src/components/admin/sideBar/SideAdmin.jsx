@@ -3,9 +3,10 @@ import './Side.css'
 import { NavLink } from 'react-router-dom'
 import img from '../../images/pic-1.png';
 import Tippy from '@tippyjs/react';
-// import 'tippy.js/animations/scale.css';
 import axios from 'axios';
 import { API_URL } from '../../config';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../Action/auth';
 
 const SideAdmin = () => {
     const [p, setP] = useState({})
@@ -19,12 +20,12 @@ const SideAdmin = () => {
         getAdmin()
     }, [])
 
+    const dispatch = useDispatch()
     const signout = () => {
-        localStorage.removeItem('user')
-        // navigate('/')
+        dispatch(logout)
         window.location.reload()
-
     }
+
     return (
         <>
             <input type="checkbox" id="menu" className='d-none' />

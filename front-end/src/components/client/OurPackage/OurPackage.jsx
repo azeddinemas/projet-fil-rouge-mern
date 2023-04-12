@@ -40,7 +40,7 @@ const OurPackage = () => {
         <Hpackage />
         <div className="py-4 bg-secondary">
           <Tippy arrow={false} animation='scale' placement='right' content="go back">
-            <button className='btn btn-warning mx-5' onClick={() => navigate(-1)}><i class="bi bi-arrow-left fs-5 text-white"></i></button>
+            <button className='btn btn-warning mx-5' onClick={() => navigate(-1)}><i className="bi bi-arrow-left fs-5 text-white"></i></button>
           </Tippy>
           <div className="container">
             <nav aria-label="Page navigation">

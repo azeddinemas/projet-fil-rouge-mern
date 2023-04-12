@@ -26,14 +26,7 @@ const Detail = () => {
     const chang = (e) => {
         setQuantity({ ...quantity, [e.target.name]: e.target.value })
     }
-    // const [first, setFirst] = useState({})
-    // const chan = (e) => {
-    //     setFirst({ ...first, [e.target.name]: e.target.value })
-    // }
-    // const clic = (e) => {
-    //     e.preventDefault()
-    //     console.log(first);
-    // }
+
     return (
         <div className="container w-100 vh-100">
             <div className="row h-75 d-flex align-items-center justify-content-center">
