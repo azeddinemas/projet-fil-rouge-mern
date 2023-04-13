@@ -11,4 +11,7 @@ Router.delete('/delete/:id', voyage.deletevoyage)
 Router.get('/getpackage', voyage.getPackage)
 
 
+Router.post('/addReservation',voyage.addReservation)
+Router.get('/getReservation',voyage.getReservation)
+
 module.exports = Router;

@@ -1,3 +1,4 @@
+const reservation = require('../models/reservation');
 const voyage = require('../models/voyage')
 
 
@@ -64,5 +65,33 @@ const deletevoyage = (req, res, next) => {
     })
 }
 
+const addReservation = (req,res,next)=>{
+    const { body } = req;
+    reservation.findOne({ email: body.email }).then((e)=>{
+        if (!e) {
+            reservation.create({ ...body})
+                .then((data) => {
+                    res.send(data)
+                }).catch((error) => {
+                    res.send(error)
+                })
+        }else throw Error('déja reserve')
+    }).catch((error)=>{
+        next(error)
+    })
+    
+}
 
-module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage }
+
+const getReservation = (req, res) => {
+
+    reservation.find()
+        .then((data) => {
+            res.send(data)
+        }).catch((error) => {
+            res.status(401).send(error)
+        })
+}
+
+
+module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage,addReservation,getReservation }

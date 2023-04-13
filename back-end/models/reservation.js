@@ -2,31 +2,25 @@ const mongoose = require('mongoose');
 
 const reservation = new mongoose.Schema({
     name: {
-        type: String,
-        require: true
+        type: String
     },
-    email: {
-        type: String,
-        require: true
-    },
+   
     phone: {
         type: String,
     },
-    role: {
-        type: String,
+   
+    dest: {
+        type: String
     },
-    confirmed: {
-        type: Boolean,
-        default: false
+    counter: {
+       type: String
     },
-    active: {
-        type: Boolean,
-        default: true
+    price: {
+        type: String
     },
-    password: {
-        type: String,
-        require: true
+    email:{
+        type:String
     }
-}, { timestamps: true })
+})
 
 module.exports = mongoose.model('reservation', reservation)

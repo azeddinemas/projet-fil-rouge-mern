@@ -68,18 +68,18 @@ const SideAdmin = () => {
                         <span className='d-none d-sm-inline'>Client</span>
                     </NavLink>
                     <br />
+                    <NavLink className="nav-link p-1 p-sm-2" to={"/reservation"}>
+                        <Tippy arrow={false} animation='scale' placement='right' content='Réservation'>
+                            <i className="bi bi-sliders2 me-sm-2 fs-5"></i>
+                        </Tippy>
+                        <span className='d-none d-sm-inline'>Réeservation</span>
+                    </NavLink>
+                    <br />
                     <NavLink className="nav-link p-1 p-sm-2" to={"/profile"}>
                         <Tippy arrow={false} animation='scale' placement='right' content='Profil'>
                             <i className="bi bi-person me-sm-2 fs-5"></i>
                         </Tippy>
                         <span className='d-none d-sm-inline'>Profil</span>
-                    </NavLink>
-                    <br />
-                    <NavLink className="nav-link p-1 p-sm-2" to={"/#"}>
-                        <Tippy arrow={false} animation='scale' placement='right' content='settings'>
-                            <i className="bi bi-sliders2 me-sm-2 fs-5"></i>
-                        </Tippy>
-                        <span className='d-none d-sm-inline'>Settings</span>
                     </NavLink>
                     <br />
                 </nav>

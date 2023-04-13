@@ -10,9 +10,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 import Agent from "./components/admin/Agent/Agent";
+import Reservation from "./components/admin/Reservation/Reservation";
 import DashAgent from "./components/agent/DashAgent";
 import Statistiqueagent from "./components/agent/Statistiqueagent/Statistiqueagent";
-import Reservation from "./components/agent/Reservation/Reservation";
+// import Reservation from "./components/agent/Reservation/Reservation";
 import Voyages from "./components/admin/Voyages/Voyages";
 import Profile from "./components/admin/Profile/Profile";
 import UpdateProfil from "./components/admin/Profile/UpdateProfil";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/client" element={<Client />} />
             <Route path="/agent" element={<Agent />} />
             <Route path="/voyage" element={<Voyages />} />
+            <Route path="/reservation" element={<Reservation/>} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/updateProfil' element={<UpdateProfil />} />
             <Route path='/updateVoyage/:id' element={<Updatevoyage />} />
@@ -48,7 +50,7 @@ function App() {
 
         <Route element={<DashAgent />}>
           <Route path="/statistiqueagent" element={<Statistiqueagent />} />
-          <Route path="/reservation" element={<Reservation />} />
+          {/* <Route path="/reservation" element={<Reservation />} /> */}
           <Route path="/voyage" element={<Voyages />} />
           {/* <Route path='/profile' element={<Profile />} /> */}
           {/* <Route path='/updateProfil' element={<UpdateProfil />} /> */}
