@@ -7,7 +7,7 @@ import jwt from 'jwt-decode';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Detail = () => {
-  
+
     const { id } = useParams();
     const navigate = useNavigate()
     const [detail, setDetail] = useState({})
@@ -25,25 +25,25 @@ const Detail = () => {
         getOne()
     }, [])
 
+
+
     const name = JSON.parse(localStorage.getItem('user'))
-    const d= jwt(name)
+    const d = jwt(name)
 
     const [quantity, setQuantity] = useState({})
     const chang = (e) => {
-        setQuantity({ ...quantity, counter: e.target.value,price:detail.prix,name: d.data.name,phone:d.data.phone,dest : detail.destination,email:d.data.email})
+        setQuantity({ ...quantity, counter: e.target.value, price: detail.prix, name: d.data.name, phone: d.data.phone, dest: detail.destination, email: d.data.email })
     }
-
-    const sub =(e)=>{
+    const sub = (e) => {
         e.preventDefault()
-        axios.post(`${API_URL}/voyage/addReservation`,quantity)
-        .then((element)=>{
-            toast.success('reserve avec success')
-        }).catch((err)=>{
-            toast.warning(err.response.data.message)
-        })
+        axios.post(`${API_URL}/voyage/addReservation`, quantity)
+            .then((element) => {
+                toast.success('reserve avec success')
+            }).catch((err) => {
+                toast.warning(err.response.data.message)
+            })
     }
 
-    
 
     return (
         <div className="container w-100 vh-100">
@@ -73,7 +73,7 @@ const Detail = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }
