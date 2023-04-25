@@ -7,15 +7,14 @@ const Reservation = () => {
     function getAll() {
         axios.get(`${API_URL}/voyage/getReservation`).then((e) => {
             setReservation(e.data)
-            console.log(e)
         })
     }
     useEffect(() => {
         getAll()
     }, [])
-    
-  return (
-    <div className="container-fluid">
+
+    return (
+        <div className="container-fluid">
             <div className="row mt-4">
                 <div className="col-md d-flex justify-content-between">
                     <div className="">
@@ -49,8 +48,8 @@ const Reservation = () => {
                                 <td>{item.dest}</td>
                                 <td>{item.price}DH</td>
                                 <td>{item.counter}</td>
-                                <td>{item.counter*item.price}DH</td>
-                                
+                                <td>{item.counter * item.price}DH</td>
+
                             </tr>
                         ))}
 
@@ -58,7 +57,7 @@ const Reservation = () => {
                 </table>
             </div>
         </div>
-  )
+    )
 }
 
 export default Reservation

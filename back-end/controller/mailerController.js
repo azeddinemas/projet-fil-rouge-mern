@@ -40,28 +40,4 @@ function confirm(req, res) {
     })
 }
 
-
-// const forgetPassword = (req, res) => {
-//     User.findOne({email : req.body.email}).then((e)=>{
-//         if (e) {
-//             const email = req.body.email 
-//             const emt = jwt.sign({email}, process.env.SECRET)
-//             const link = "http://localhost:7000/api/auth/updatepassword/" + emt
-//             let info = {
-//                 from: '"azeddine" <maslouhazeddine@gmail.com>',
-//                 to: req.body.email,
-//                 subject: "Réinitialisation de mot de passe pour votre compte Marhaba",
-//                 html: '<p>pour réinitialiser votre mot de passe de votre compte Marhaba</p><a href='+link+'></a>></form>',
-//             };
-//             const send = transporter.sendMail(info)
-//             if (send) {
-//                 res.send('visite your email')
-//             }
-//         }else  res.status(401).send('email not found')
-//     }).catch((error)=>{
-//         res.status(401).send(error)
-//     })
-// }
-
-
 module.exports = { main, confirm }
