@@ -65,23 +65,22 @@ const deletevoyage = (req, res, next) => {
     })
 }
 
-const addReservation = (req,res,next)=>{
+const addReservation = (req, res, next) => {
     const { body } = req;
-    reservation.findOne({ email: body.email }).then((e)=>{
+    reservation.findOne({ email: body.email }).then((e) => {
         if (!e) {
-            reservation.create({ ...body})
+            reservation.create({ ...body })
                 .then((data) => {
                     res.send(data)
                 }).catch((error) => {
                     res.send(error)
                 })
-        }else throw Error('déja reserve')
-    }).catch((error)=>{
+        } else throw Error('déja reserve')
+    }).catch((error) => {
         next(error)
     })
-    
-}
 
+}
 
 const getReservation = (req, res) => {
 
@@ -92,6 +91,15 @@ const getReservation = (req, res) => {
             res.status(401).send(error)
         })
 }
+const getReservat = (req, res) => {
+
+    reservation.find()
+        .then((data) => {
+            res.send(data)
+        }).catch((error) => {
+            res.status(401).send(error)
+        })
+}
 
 
-module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage,addReservation,getReservation }
+module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage, addReservation, getReservation, getReservat }
