@@ -95,7 +95,7 @@ const getReservat = (req, res) => {
 
     reservation.find()
         .then((data) => {
-            console.log(data)
+            res.send(data)
         }).catch((error) => {
             res.send({ error })
         })
