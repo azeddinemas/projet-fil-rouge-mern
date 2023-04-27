@@ -91,6 +91,15 @@ const getReservation = (req, res) => {
             res.status(401).send(error)
         })
 }
+const getReservat = (req, res) => {
+
+    reservation.find()
+        .then((data) => {
+            res.send(data)
+        }).catch((error) => {
+            res.status(401).send(error)
+        })
+}
 
 
-module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage, addReservation, getReservation }
+module.exports = { addVoyage, getall, getOne, editvoyage, deletevoyage, getPackage, addReservation, getReservation, getReservat }
